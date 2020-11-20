@@ -1,0 +1,43 @@
+@import "../../core/stylesheets/main.scss";
+
+.minitab-ui-button {
+  text-align: center;
+  padding: spacing();
+  border-width: 1px;
+  border-style: solid;
+  border-radius: $border-radius-small;
+  cursor: pointer;
+
+  &:disabled,
+  &.minitab-ui-button-disabled {
+    cursor: not-allowed;
+  }
+
+  &.minitab-ui-button-default {
+    background-color: $color-default;
+
+    &.minitab-ui-button-disabled {
+      background-color: rgba($color-default, $opacity-disabled);
+    }
+  }
+
+  &.minitab-ui-button-primary {
+    background-color: $color-primary;
+
+    &.minitab-ui-button-disabled {
+      background-color: rgba($color-primary, $opacity-disabled);
+    }
+  }
+
+  &.minitab-ui-button-small {
+    width: calculateRem(75px);
+  }
+
+  &.minitab-ui-button-medium {
+    width: calculateRem(100px);
+  }
+
+  &.minitab-ui-button-large {
+    width: calculateRem(125px);
+  }
+}

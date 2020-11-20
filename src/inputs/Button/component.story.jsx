@@ -1,13 +1,18 @@
 import React from "react";
 import { Button } from "./component";
 
-export default {
-  title: "Button",
+
+const ButtonStory = {
+  title: "Inputs/Button",
   component: Button,
   argTypes: {
-    children: { control: { type: "text" } },
+    color: {
+      control: { type: "select", options: ["default", "primary", "secondary"] },
+    },
   },
 };
+
+export default ButtonStory;
 
 const Template = (args) => <Button {...args} />;
 
@@ -19,4 +24,5 @@ Default.args = {
 export const Primary = Template.bind({});
 Primary.args = {
   children: "Primary",
+  color: "primary",
 };
