@@ -1,32 +1,34 @@
 @import "../../core/stylesheets/main.scss";
 
 .minitab-ui-button {
+  outline: none;
   text-align: center;
   padding: spacing();
   border-width: 1px;
   border-style: solid;
-  border-radius: $border-radius-small;
+  border-radius: $shape-border-radius-50;
   cursor: pointer;
 
-  &:disabled,
-  &.minitab-ui-button-disabled {
-    cursor: not-allowed;
+  &:focus {
+    border-color: $color-action-focus !important;
   }
 
   &.minitab-ui-button-default {
-    background-color: $color-default;
+    color: $color-default-contrast-text;
+    border-color: $color-default-dark;
+    background-color: $color-default-main;
 
-    &.minitab-ui-button-disabled {
-      background-color: rgba($color-default, $opacity-disabled);
-    }
+    @include button-hover($color-default-main);
+    @include button-disabled();
   }
 
   &.minitab-ui-button-primary {
-    background-color: $color-primary;
+    color: $color-primary-contrast-text;
+    border-color: $color-primary-light;
+    background-color: $color-primary-main;
 
-    &.minitab-ui-button-disabled {
-      background-color: rgba($color-primary, $opacity-disabled);
-    }
+    @include button-hover($color-primary-main);
+    @include button-disabled();
   }
 
   &.minitab-ui-button-small {

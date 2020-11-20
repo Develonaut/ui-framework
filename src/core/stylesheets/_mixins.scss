@@ -2,3 +2,17 @@
   font-size: $size;
   font-size: calculateRem($size);
 }
+
+@mixin button-hover($color) {
+  &:hover {
+    background-color: darken($color, $percent-action-hover);
+  }
+}
+
+@mixin button-disabled() {
+  &:disabled,
+  &.minitab-ui-button-disabled {
+    cursor: not-allowed;
+    opacity: $color-action-disabled;
+  }
+}
