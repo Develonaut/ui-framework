@@ -13,6 +13,6 @@
   &:disabled,
   &.minitab-ui-button-disabled {
     cursor: not-allowed;
-    opacity: $color-action-disabled;
+    opacity: $percent-action-disabled;
   }
 }
