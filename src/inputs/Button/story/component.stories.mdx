@@ -1,0 +1,37 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  SourceState,
+} from "@storybook/addon-docs/blocks";
+import * as stories from "./component.stories.jsx";
+import { Button } from "../component";
+
+<Meta title="Input/Button" component={Button} />
+
+# Button
+
+I can define a story with the function imported from CSF:
+
+And I can also embed arbitrary markdown & JSX in this file.
+
+## Contained
+
+<Canvas isExpanded withSource={SourceState.OPEN}>
+  <Story story={stories.Contained} />
+</Canvas>
+
+## Text
+
+<Canvas isExpanded withSource={SourceState.OPEN}>
+  <Story story={stories.Text} />
+</Canvas>
+
+## Playground
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="Playground" story={stories.Playground} />
+</Canvas>
+
+<ArgsTable of={Button} story="Playground" />

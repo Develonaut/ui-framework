@@ -33,13 +33,14 @@ Button.propTypes = {
    *
    */
   children: PropTypes.oneOfType([
+    PropTypes.string,
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
   /**
    * The color of the button.
    */
-  color: PropTypes.oneOf(["default, primary, secondary"]),
+  color: PropTypes.oneOf(["default", "primary", "secondary"]),
   /**
    * If `true`, the button will be disabled.
    */
