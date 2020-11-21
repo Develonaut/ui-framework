@@ -9,25 +9,25 @@
   border-radius: $shape-border-radius-50;
   cursor: pointer;
 
-  &:focus {
-    border-color: $color-action-focus !important;
-  }
-
   &.minitab-ui-button-default {
     color: $color-default-contrast-text;
     border-color: $color-default-dark;
     background-color: $color-default-main;
 
-    @include button-hover($color-default-main);
+    @include button-focus();
+    @include button-hover($color-default-main, $color-default-contrast-text);
+    @include button-active($color-default-main);
     @include button-disabled();
   }
 
   &.minitab-ui-button-primary {
     color: $color-primary-contrast-text;
-    border-color: $color-primary-light;
+    border-color: $color-primary-dark;
     background-color: $color-primary-main;
 
+    @include button-focus();
     @include button-hover($color-primary-main);
+    @include button-active($color-primary-main);
     @include button-disabled();
   }
 
