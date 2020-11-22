@@ -1,0 +1,5 @@
+{
+  // Important: Needed when performing builds with Rollup
+  // to ensure JSX is transpiled properly.
+  "presets": ["@babel/preset-react"]
+}

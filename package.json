@@ -1,26 +1,25 @@
 {
-  "name": "minitab-ui",
+  "name": "ui-framework",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.1",
-    "@testing-library/user-event": "^12.2.2",
+  "private": false,
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "files": [
+    "build"
+  ],
+  "peerDependencies": {
     "clsx": "^1.1.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0",
-    "web-vitals": "^0.2.4"
+    "react-dom": "^17.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "build": "rollup -c",
     "create": "plop",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "chromatic": "npx chromatic --project-token l8vfsrplz0d"
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +41,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@babel/preset-react": "^7.12.7",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
     "@storybook/addon-actions": "^6.1.1",
     "@storybook/addon-essentials": "^6.1.1",
     "@storybook/addon-links": "^6.1.1",
@@ -49,12 +52,24 @@
     "@storybook/preset-create-react-app": "^3.1.5",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.1.1",
+    "@storybook/storybook-deployer": "^2.8.7",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.1",
+    "@testing-library/user-event": "^12.2.2",
     "babel-loader": "^8.1.0",
-    "chromatic": "^5.4.0",
+    "clsx": "^1.1.1",
     "css-loader": "^5.0.1",
     "node-sass": "^4.0.0",
     "plop": "^2.7.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0",
+    "rollup": "^2.33.3",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^3.1.8",
     "sass-loader": "^10.1.0",
-    "style-loader": "^2.0.0"
-  }
+    "style-loader": "^2.0.0",
+    "web-vitals": "^0.2.4"
+  },
+  "dependencies": {}
 }
