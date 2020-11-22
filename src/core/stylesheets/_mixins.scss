@@ -4,7 +4,7 @@
 }
 
 @mixin button-hover($color, $contrastColor: false) {
-  &:hover {
+  &:not(.minitab-ui-button-disabled):not(:disabled):hover {
     @if $contrastColor {
       color: $contrastColor;
     }

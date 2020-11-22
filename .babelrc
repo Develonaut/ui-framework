@@ -1,5 +1,13 @@
 {
   // Important: Needed when performing builds with Rollup
   // to ensure JSX is transpiled properly.
-  "presets": ["@babel/preset-react"]
+  "presets": ["@babel/preset-react"],
+  "plugins": [
+    [
+      "transform-react-remove-prop-types",
+      {
+        "removeImport": true
+      }
+    ]
+  ]
 }
