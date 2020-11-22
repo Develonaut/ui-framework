@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "../component";
 
-export const Playground = (args) => <Button {...args} />;
-Playground.args = {
+export const API = (args) => <Button {...args} />;
+API.args = {
   children: "Default",
 };
 

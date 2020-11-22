@@ -4,4 +4,9 @@ export const parameters = {
     "storybook/docs/panel": { index: 0 },
     canvas: { index: 1 },
   },
+  options: {
+    storySort: {
+      order: ["Getting Started", "Input"],
+    },
+  },
 };
