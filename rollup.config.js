@@ -8,7 +8,7 @@ import postcss from "rollup-plugin-postcss";
 const packageJson = require("./package.json");
 
 export default {
-  input: "src/index.js",
+  input: "src/lib/index.js",
   output: [
     {
       file: packageJson.main,
@@ -25,7 +25,7 @@ export default {
     peerDepsExternal(),
     resolve({
       customResolveOptions: {
-        moduleDirectory: "src",
+        moduleDirectory: "src/lib",
       },
       extensions: [".js", ".jsx"],
     }),
