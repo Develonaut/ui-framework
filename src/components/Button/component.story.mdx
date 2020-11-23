@@ -1,0 +1,56 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+  SourceState,
+} from "@storybook/addon-docs/blocks";
+import { Button } from "./component";
+
+<Meta title="Input/Button" component={Button} />
+
+# Button
+
+I can define a story with the function imported from CSF:
+
+And I can also embed arbitrary markdown & JSX in this file.
+
+## Contained
+
+<Canvas isExpanded withSource={SourceState.OPEN}>
+  <Story
+    name="Contained"
+    parameters={{
+      viewMode: "docs",
+    }}
+  >
+    <Button>Default</Button>
+    <Button color="primary">Primary</Button>
+    <Button disabled>Disabled</Button>
+  </Story>
+</Canvas>
+
+## Text
+
+<Canvas isExpanded withSource={SourceState.OPEN}>
+  <Story
+    name="Text"
+    parameters={{
+      viewMode: "docs",
+    }}
+  >
+    <Button>Default</Button>
+    <Button color="primary">Primary</Button>
+    <Button disabled>Disabled</Button>
+  </Story>
+</Canvas>
+
+## API
+
+<Canvas withSource={SourceState.OPEN}>
+  <Story name="API" args={{ children: "Default" }}>
+    {(args) => <Button {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Button} story="API" />
