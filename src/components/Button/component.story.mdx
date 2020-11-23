@@ -22,6 +22,7 @@ And I can also embed arbitrary markdown & JSX in this file.
     name="Contained"
     parameters={{
       viewMode: "docs",
+      layout: "centered"
     }}
   >
     <Button>Default</Button>
@@ -37,6 +38,7 @@ And I can also embed arbitrary markdown & JSX in this file.
     name="Text"
     parameters={{
       viewMode: "docs",
+      layout: "centered"
     }}
   >
     <Button>Default</Button>
@@ -47,8 +49,8 @@ And I can also embed arbitrary markdown & JSX in this file.
 
 ## API
 
-<Canvas withSource={SourceState.OPEN}>
-  <Story name="API" args={{ children: "Default" }}>
+<Canvas>
+  <Story name="API" args={{ children: "Default" }} parameters={{ layout: "centered" }}>
     {(args) => <Button {...args} />}
   </Story>
 </Canvas>

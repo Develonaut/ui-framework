@@ -8,6 +8,7 @@
   border-style: solid;
   border-radius: $shape-border-radius-50;
   cursor: pointer;
+  margin: spacing();
 
   &.minitab-ui-button-default {
     color: $color-default-contrast-text;
