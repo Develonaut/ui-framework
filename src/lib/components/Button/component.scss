@@ -16,8 +16,8 @@
     background-color: $color-default-main;
 
     @include button-focus();
-    @include button-active($color-default-main);
     @include button-hover($color-default-main, $color-default-contrast-text);
+    @include button-active($color-default-main);
     @include button-disabled();
   }
 
@@ -27,8 +27,8 @@
     background-color: $color-primary-main;
 
     @include button-focus();
-    @include button-active($color-primary-main);
     @include button-hover($color-primary-main);
+    @include button-active($color-primary-main);
     @include button-disabled();
   }
 

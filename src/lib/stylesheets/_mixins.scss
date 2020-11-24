@@ -4,7 +4,8 @@
 }
 
 @mixin button-hover($color, $contrastColor: false) {
-  &:not(.minitab-ui-button-disabled):not(:disabled):hover {
+  &:enabled:hover,
+  &:not(.minitab-ui-button-disabled):hover {
     @if $contrastColor {
       color: $contrastColor;
     }
@@ -13,7 +14,8 @@
 }
 
 @mixin button-active($color) {
-  &:active {
+  &:enabled:active,
+  &:not(.minitab-ui-button-disabled):active {
     background-color: darken($color, $percent-action-activated);
   }
 }
