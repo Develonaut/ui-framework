@@ -4,53 +4,106 @@ import {
   Canvas,
   ArgsTable,
   SourceState,
+  Source,
+  Anchor,
+  Title,
+  Heading,
+  Subheading,
 } from "@storybook/addon-docs/blocks";
 import { Button } from "lib/components";
+import { getPackageName } from "utils";
 
-<Meta title="Input/Button" component={Button} />
+<Meta title="Input/Button" component={Button} anchor />
 
 # Button
 
-I can define a story with the function imported from CSF:
+#### Buttons allow users to take actions, and make choices, with a single tap.
 
-And I can also embed arbitrary markdown & JSX in this file.
+Buttons communicate actions that users can take. They are typically placed throughout your UI, in places like:
 
-## Contained
+- Dialogs
+- Modal windows
+- Forms
+- Cards
+- Toolbars
+
+## Contained Buttons
+
+Contained buttons are high-emphasis, distinguished by their use of elevation and fill. They contain actions that are primary to your app.
 
 <Canvas isExpanded withSource={SourceState.OPEN}>
   <Story
     name="Contained"
     parameters={{
       viewMode: "docs",
-      layout: "centered"
+      layout: "centered",
     }}
   >
     <Button>Default</Button>
     <Button color="primary">Primary</Button>
     <Button disabled>Disabled</Button>
+    <Button href="#contained-buttons" color="primary">
+      Link
+    </Button>
   </Story>
 </Canvas>
 
-## Text
+<Anchor storyId="input-button--text" />
 
-<Canvas isExpanded withSource={SourceState.OPEN}>
+## Text Buttons
+
+Text buttons are typically used for less-pronounced actions, including those located:
+
+- In dialogs
+- In cards
+
+In cards, text buttons help maintain an emphasis on card content.
+
+<Canvas isExpanded withSource={SourceState.OPEN} format>
   <Story
     name="Text"
     parameters={{
       viewMode: "docs",
-      layout: "centered"
+      layout: "centered",
     }}
   >
-    <Button>Default</Button>
-    <Button color="primary">Primary</Button>
-    <Button disabled>Disabled</Button>
+    <Button variant="text">Default</Button>
+    <Button variant="text" color="primary">
+      Primary
+    </Button>
+    <Button variant="text" disabled>
+      Disabled
+    </Button>
+    <Button variant="text" color="primary" href="#text-buttons">
+      Link
+    </Button>
   </Story>
 </Canvas>
 
+<Anchor storyId="input-button--api" />
+
 ## API
 
+#### Import
+
+<Source
+  dark
+  language="jsx"
+  code={`
+    import Button from '${getPackageName()}/core/Button';
+// or
+import { Button } from '${getPackageName()}/core';
+  `}
+/>
+
+#### Playground
+
 <Canvas>
-  <Story name="API" args={{ children: "Default" }} parameters={{ layout: "centered" }}>
+  <Story
+    name="API"
+    args={{ children: "Default" }}
+    parameters={{ layout: "centered" }}
+  >
     {(args) => <Button {...args} />}
   </Story>
 </Canvas>

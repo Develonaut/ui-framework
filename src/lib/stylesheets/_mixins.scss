@@ -13,9 +13,12 @@
   }
 }
 
-@mixin button-active($color) {
+@mixin button-active($color, $contrastColor: false) {
   &:enabled:active,
   &:not(.minitab-ui-button-disabled):active {
+    @if $contrastColor {
+      color: $contrastColor;
+    }
     background-color: darken($color, $percent-action-activated);
   }
 }

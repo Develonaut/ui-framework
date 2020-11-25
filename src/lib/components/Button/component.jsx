@@ -8,35 +8,34 @@ export const Button = ({
   color = "default",
   variant = "contained",
   size = "medium",
-  children = "",
+  children,
   onClick,
   disabled = false,
+  href = undefined,
+  component = "button",
 }) => {
-  return (
-    <button
-      disabled={disabled}
-      onClick={onClick}
-      className={clsx(
-        `minitab-ui-button minitab-ui-button-${color} minitab-ui-button-${size} minitab-ui-button-${variant}`,
-        {
-          "minitab-ui-button-disabled": disabled,
-        }
-      )}
-    >
-      {children}
-    </button>
-  );
+  const as = href ? "a" : component;
+
+  return React.createElement(as, {
+    ...(href ? { href } : {}),
+    onClick,
+    children,
+    disabled,
+    className: clsx(
+      `minitab-ui-button minitab-ui-button-${color} minitab-ui-button-${size} minitab-ui-button-${variant}`,
+      {
+        "minitab-ui-button-link": href,
+        "minitab-ui-button-disabled": disabled,
+      }
+    ),
+  });
 };
 
 Button.propTypes = {
   /**
-   *
+   * The content of the button.
    */
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
+  children: PropTypes.node,
   /**
    * The color of the button.
    */
@@ -45,6 +44,10 @@ Button.propTypes = {
    * If `true`, the button will be disabled.
    */
   disabled: PropTypes.bool,
+  /**
+   * The URL to link to when the button is clicked. If defined, an a element will be used as the root node.
+   */
+  href: PropTypes.string,
   /**
    * The button variant.
    */

@@ -7,3 +7,13 @@
   display: flex;
   flex-direction: column;
 }
+
+%font-family {
+  font-family: "Nunito Sans", -apple-system, ".SFNSText-Regular",
+    "San Francisco", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+}
+
+%box-sizing {
+  box-sizing: border-box;
+}

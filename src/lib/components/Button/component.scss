@@ -1,6 +1,11 @@
 @import "../../stylesheets/main.scss";
 
 .minitab-ui-button {
+  @include font-size(13px);
+  @extend %font-family;
+  @extend %box-sizing;
+  background-color: transparent;
+  border-color: transparent;
   outline: none;
   text-align: center;
   padding: spacing();
@@ -9,27 +14,60 @@
   border-radius: $shape-border-radius-50;
   cursor: pointer;
   margin: spacing();
+  display: inline-block;
 
-  &.minitab-ui-button-default {
-    color: $color-default-contrast-text;
-    border-color: $color-default-dark;
-    background-color: $color-default-main;
+  &.minitab-ui-button-contained {
+    &.minitab-ui-button-default {
+      color: $color-default-contrast-text;
+      border-color: $color-default-dark;
+      background-color: $color-default-main;
 
-    @include button-focus();
-    @include button-hover($color-default-main, $color-default-contrast-text);
-    @include button-active($color-default-main);
-    @include button-disabled();
+      @include button-focus();
+      @include button-hover($color-default-main, $color-default-contrast-text);
+      @include button-active($color-default-main);
+      @include button-disabled();
+    }
+
+    &.minitab-ui-button-primary {
+      color: $color-primary-contrast-text;
+      border-color: $color-primary-dark;
+      background-color: $color-primary-main;
+
+      @include button-focus();
+      @include button-hover($color-primary-main);
+      @include button-active($color-primary-main);
+      @include button-disabled();
+    }
   }
 
-  &.minitab-ui-button-primary {
-    color: $color-primary-contrast-text;
-    border-color: $color-primary-dark;
-    background-color: $color-primary-main;
+  &.minitab-ui-button-text {
+    &.minitab-ui-button-default {
+      color: $color-default-contrast-text;
 
-    @include button-focus();
-    @include button-hover($color-primary-main);
-    @include button-active($color-primary-main);
-    @include button-disabled();
+      @include button-focus();
+      @include button-hover($color-default-main, $color-default-contrast-text);
+      @include button-active($color-default-main, $color-default-contrast-text);
+      @include button-disabled();
+    }
+
+    &.minitab-ui-button-primary {
+      color: $color-primary-main;
+
+      @include button-focus();
+      @include button-hover($color-primary-light, $color-primary-contrast-text);
+      @include button-active(
+        $color-primary-light,
+        $color-primary-contrast-text
+      );
+      @include button-disabled();
+    }
+  }
+
+  &.minitab-ui-button-link {
+    appearance: button;
+    -moz-appearance: button;
+    -webkit-appearance: button;
+    text-decoration: none;
   }
 
   &.minitab-ui-button-small {
