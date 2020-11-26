@@ -8,7 +8,7 @@ export const parameters = {
   options: {
     // Sort the stories in the sidebar
     storySort: {
-      order: ["Getting Started", "Input"],
+      order: ["Getting Started", "Inputs", "Utils"],
     },
   },
 };

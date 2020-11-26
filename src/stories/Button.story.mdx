@@ -11,9 +11,14 @@ import {
   Subheading,
 } from "@storybook/addon-docs/blocks";
 import { Button } from "lib/components";
-import { getPackageName } from "utils";
+import { StoryAnchor, ImportSnippet } from "stories/components";
+import { getPackageName, getImportSnippet } from "stories/utils";
+import { paths } from "stories/config";
 
-<Meta title="Input/Button" component={Button} anchor />
+export const componentName = "Button";
+export const storyPath = paths.button;
+
+<Meta title={storyPath} component={Button} anchor />
 
 # Button
 
@@ -48,7 +53,7 @@ Contained buttons are high-emphasis, distinguished by their use of elevation and
   </Story>
 </Canvas>
 
-<Anchor storyId="input-button--text" />
+<StoryAnchor name="Text" path={storyPath} />
 
 ## Text Buttons
 
@@ -59,7 +64,7 @@ Text buttons are typically used for less-pronounced actions, including those loc
 
 In cards, text buttons help maintain an emphasis on card content.
 
-<Canvas isExpanded withSource={SourceState.OPEN} format>
+<Canvas isExpanded withSource={SourceState.OPEN}>
   <Story
     name="Text"
     parameters={{
@@ -80,21 +85,13 @@ In cards, text buttons help maintain an emphasis on card content.
   </Story>
 </Canvas>
 
-<Anchor storyId="input-button--api" />
+<StoryAnchor name="API" path={storyPath} />
 
 ## API
 
 #### Import
 
-<Source
-  dark
-  language="jsx"
-  code={`
-    import Button from '${getPackageName()}/core/Button';
-// or
-import { Button } from '${getPackageName()}/core';
-  `}
-/>
+<ImportSnippet componentName={componentName} />
 
 #### Playground
 
