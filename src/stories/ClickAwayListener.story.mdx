@@ -6,15 +6,15 @@ import {
   ArgsTable,
   SourceState,
   Source,
-  Anchor,
-  Title,
-  Heading,
-  Subheading,
 } from "@storybook/addon-docs/blocks";
-import { StoryAnchor } from "stories/components";
+import { StoryAnchor, ImportSnippet } from "stories/components";
 import { ClickAwayListener, Button } from "lib/components";
+import { paths } from "stories/config";
 
-<Meta title="Utils/ClickAwayListener" anchor />
+export const componentName = "ClickAwayListener";
+export const storyPath = paths.clickAwayListener;
+
+<Meta title={storyPath} component={ClickAwayListener} anchor />
 
 <style>{`
   .root {
@@ -31,7 +31,6 @@ import { ClickAwayListener, Button } from "lib/components";
   }
 `}</style>
 
-
 <StoryAnchor name="Basic" />
 
 # ClickAwayListener
@@ -40,7 +39,7 @@ import { ClickAwayListener, Button } from "lib/components";
 
 <Canvas isExpanded withSource={SourceState.OPEN}>
   <Story
-    name="Basic"
+    name="API"
     parameters={{
       layout: "centered",
     }}
@@ -64,3 +63,9 @@ import { ClickAwayListener, Button } from "lib/components";
     }}
   </Story>
 </Canvas>
+
+#### Import
+
+<ImportSnippet componentName={componentName} />
+
+<ArgsTable of={ClickAwayListener} story="API" />

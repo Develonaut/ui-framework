@@ -31,7 +31,11 @@ export const ClickAwayListener = ({ children, onClickAway }) => {
 
 ClickAwayListener.propTypes = {
   /**
-   * Optional click handler
+   * The wrapped element.
+   */
+  children: PropTypes.node,
+  /**
+   * Callback fired when a "click away" event is detected.
    */
   onClick: PropTypes.func,
 };
