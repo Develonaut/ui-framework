@@ -11,4 +11,6 @@ export const parameters = {
       order: ["Getting Started", "Inputs", "Utils"],
     },
   },
+  // Sets the default tab to "Docs" when navigating between stories.
+  viewMode: 'docs',
 };

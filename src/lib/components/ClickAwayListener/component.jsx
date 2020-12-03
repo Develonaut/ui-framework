@@ -2,20 +2,15 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { useDidMount } from "lib/hooks";
 
-import "./component.css";
-
 export const ClickAwayListener = ({ children, onClickAway }) => {
   const ref = useRef();
 
   useDidMount(() => {
     const listener = (event) => {
-      // Do nothing if clicking ref's element or descendent elements
+      // Do nothing if clicking ref's element or descendent elements.
       if (!ref.current || ref.current.contains(event.target)) {
-        console.log("in target");
         return;
       }
-
-      console.log("click out");
       onClickAway(event);
     };
 
