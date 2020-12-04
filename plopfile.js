@@ -1,4 +1,5 @@
-const requireField = fieldName => value => (String(value).length === 0 ? `${fieldName} is required` : true);
+const requireField = (fieldName) => (value) =>
+  String(value).length === 0 ? `${fieldName} is required` : true;
 
 const yesNoChoices = () => [
   {
@@ -11,73 +12,157 @@ const yesNoChoices = () => [
   },
 ];
 
+const storyPathChoices = () => [
+  {
+    name: "Inputs",
+    value: "Inputs"
+  },
+  {
+    name: "Utils",
+    value: "Utils"
+  }
+]
+
 const componentTypeChoices = () => [
   {
-    name: "inputs",
-    value: "inputs",
-  }
+    name: "Library",
+    value: "lib",
+  },
+  {
+    name: "Stories",
+    value: "stories",
+  },
 ];
 
-
-module.exports = plop => {
-  plop.setGenerator('component', {
-    description: 'Creat a React Component',
-    prompts    : [
+module.exports = (plop) => {
+  plop.setGenerator("component", {
+    description: "Creat a React Component",
+    prompts: [
       {
-        type    : 'input',
-        name    : 'name',
-        message : 'What\'s the component name?',
-        validate: requireField('name')
+        type: "input",
+        name: "name",
+        message: "What's the component name?",
+        validate: requireField("name"),
       },
       {
         type: "list",
-        name: "location",
+        name: "type",
         message: "What's the component type?",
         choices: componentTypeChoices,
       },
+      {
+        type: "list",
+        name: "isPublic",
+        message: "Is this component publicly consumable?",
+        choices: yesNoChoices,
+        when: ({ type }) => type === "lib",
+      },
+      {
+        type: "list",
+        name: "includeStory",
+        message: "Does this component need a story?",
+        choices: yesNoChoices,
+      },
+      {
+        type: "list",
+        name: "storyPath",
+        message: "What is the stories path?",
+        choices: storyPathChoices
+      }
     ],
-    actions: () => {
-      const actions = [
+    actions: ({ type, includeStory, isPublic }) => {
+      const libraryTypeActions = [
         {
-          type        : 'add',
-          path        : 'src/{{location}}/{{pascalCase name}}/component.jsx',
-          templateFile: 'plop-templates/Component/component.jsx.hbs'
+          type: "add",
+          path: "src/{{type}}/components/{{pascalCase name}}/component.jsx",
+          templateFile: "plop-templates/Component/component.jsx.hbs",
         },
         {
-          type        : 'add',
-          path        : 'src/{{location}}/{{pascalCase name}}/component.story.jsx',
-          templateFile: 'plop-templates/Component/component.story.jsx.hbs'
+          type: "add",
+          path:
+            "src/{{type}}/components/{{pascalCase name}}/component.test.jsx",
+          templateFile: "plop-templates/Component/component.test.jsx.hbs",
         },
         {
-          type        : 'add',
-          path        : 'src/{{location}}/{{pascalCase name}}/component.test.jsx',
-          templateFile: 'plop-templates/Component/component.test.jsx.hbs'
+          type: "add",
+          path: "src/{{type}}/components/{{pascalCase name}}/component.scss",
+          templateFile: "plop-templates/Component/component.scss.hbs",
         },
         {
-          type        : 'add',
-          path        : 'src/{{location}}/{{pascalCase name}}/component.css',
-          templateFile: 'plop-templates/Component/component.css.hbs'
+          type: "add",
+          path: "src/{{type}}/components/{{pascalCase name}}/index.js",
+          templateFile: "plop-templates/Component/index.js.hbs",
         },
         {
-          type        : 'add',
-          path        : 'src/{{location}}/{{pascalCase name}}/index.js',
-          templateFile: 'plop-templates/Component/index.js.hbs'
+          type: "add",
+          path: "src/{{type}}/components/index.js",
+          templateFile: "plop-templates/injectable-index.js.hbs",
+          skipIfExists: true,
         },
         {
-          type        : 'add',
-          path        : 'src/{{location}}/index.js',
-          templateFile: 'plop-templates/injectable-index.js.hbs',
-          skipIfExists: true
-        },
-        {
-          type    : 'append',
-          path    : 'src/{{location}}/index.js',
-          pattern : '/* PLOP_INJECT_EXPORT */',
-          template: 'export * from \'./{{pascalCase name}}\';'
+          type: "append",
+          path: "src/{{type}}/components/index.js",
+          pattern: "/* PLOP_INJECT_EXPORT */",
+          template: "export * from './{{pascalCase name}}';",
         }
       ];
 
-      return actions;
-    }
+      const isPublicActions = [
+        {
+          type: "append",
+          path: "src/{{type}}/index.js",
+          pattern: "/* PLOP_INJECT_IMPORT */",
+          template: "{{pascalCase name}},",
+        },
+        {
+          type: "append",
+          path: "src/{{type}}/index.js",
+          pattern: "/* PLOP_INJECT_EXPORT */",
+          template: "{{pascalCase name}},",
+        },
+      ]
+
+      const storiesTypeActions = [
+        {
+          type: "add",
+          path: "src/{{type}}/components/{{pascalCase name}}/component.jsx",
+          templateFile: "plop-templates/Component/component.jsx.hbs",
+        },
+        {
+          type: "append",
+          path: "src/{{type}}/index.js",
+          pattern: "/* PLOP_INJECT_EXPORT */",
+          template: "export * from './{{pascalCase name}}';",
+        },
+      ];
+
+      const includeStoryActions = [
+        {
+          type: "add",
+          path: "src/stories/{{pascalCase name}}.story.mdx",
+          templateFile: "plop-templates/component.story.mdx.hbs",
+        },
+        {
+          type: "append",
+          path: "src/stories/config/stories.js",
+          pattern: "/* PLOP_INJECT_CONFIG */",
+          template: `
+            {{constantCase name}}: {
+              title: "{{storyPath}}/{{pascalCase name}}",
+              path: "{{storyPath}}/{{pascalCase name}}",
+              Component: lib.{{pascalCase name}},
+              componentName: "{{pascalCase name}}",
+            },
+          `
+        }
+      ];
+
+      return [
+        ...(type === "lib" ? libraryTypeActions : []),
+        ...(isPublic ? isPublicActions : []),
+        ...(type === "stories" ? storiesTypeActions : []),
+        ...(includeStory ? includeStoryActions : []),
+      ];
+    },
   });
 };

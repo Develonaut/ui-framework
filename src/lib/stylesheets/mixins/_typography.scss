@@ -1,0 +1,113 @@
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin letter-spacing($size) {
+  letter-spacing: $size;
+  letter-spacing: calculateRem($size);
+}
+
+@mixin typography-h1() {
+  @include font-size(94px);
+  @include letter-spacing(-0.24992px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-light;
+  line-height: 1.167;
+}
+
+@mixin typography-h2() {
+  @include font-size(60px);
+  @include letter-spacing(-0.13328px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-light;
+  line-height: 1.2;
+}
+
+@mixin typography-h3() {
+  @include font-size(48px);
+  @include letter-spacing(0px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-regular;
+  line-height: 1.2;
+}
+
+@mixin typography-h4() {
+  @include font-size(34px);
+  @include letter-spacing(0.1176px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-regular;
+  line-height: 1.235;
+}
+
+@mixin typography-h5() {
+  @include font-size(24px);
+  @include letter-spacing(0px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-regular;
+  line-height: 1.334;
+}
+
+@mixin typography-h6() {
+  @include font-size(20px);
+  @include letter-spacing(0.12px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-medium;
+  line-height: 1.6;
+}
+
+@mixin typography-subtitle1() {
+  @include font-size(16px);
+  @include letter-spacing(0.15008px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-regular;
+  line-height: 1.75;
+}
+
+@mixin typography-subtitle2() {
+  @include font-size(14px);
+  @include letter-spacing(0.11424px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-medium;
+  line-height: 1.57;
+}
+
+@mixin typography-body1() {
+  @include font-size(16px);
+  @include letter-spacing(0.15008px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-regular;
+  line-height: 1.5;
+}
+
+@mixin typography-body2() {
+  @include font-size(14px);
+  @include letter-spacing(0.17136px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-regular;
+  line-height: 1.43;
+}
+
+@mixin typography-button() {
+  @include font-size(12px);
+  @include letter-spacing(0.45712px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-medium;
+  line-height: 1.50;
+}
+
+@mixin typography-caption() {
+  @include font-size(12px);
+  @include letter-spacing(0.53328px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-regular;
+  line-height: 1.66;
+}
+
+@mixin typography-overline() {
+  @include font-size(12px);
+  @include letter-spacing(1.33328px);
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-regular;
+  line-height: 2.66;
+}

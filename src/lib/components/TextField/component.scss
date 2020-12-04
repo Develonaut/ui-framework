@@ -1,17 +1,17 @@
 @import "../../stylesheets/main.scss";
 
-@mixin input-disabled {
-  cursor: not-allowed;
-  opacity: $percent-action-disabled;
-}
 
 .minitab-ui-text-field {
+  @extend %box-sizing;
   @extend %flex-column;
 
   .minitab-ui-text-field-label {
-    @include font-size(14px);
-    padding-top: #{spacing(1, true) / 2}px;
-    padding-bottom: #{spacing(1, true) / 2}px;
+    @extend %box-sizing;
+    @include typography-caption();
+    color: $color-gray-700;
+    height: 25px;
+    padding-top: #{spacing(1, true) - 4}px;
+    padding-bottom: #{spacing(1, true) - 4}px;
 
     &.minitab-ui-text-field-label-disabled {
       @include input-disabled();
@@ -19,7 +19,8 @@
   }
 
   .minitab-ui-text-field-input {
-    @include font-size(14px);
+    @extend %box-sizing;
+    @include typography-body2();
     @include border(1px, solid, $color-gray-500, $shape-border-radius-50);
     @include input-focus();
     padding: spacing(1);
@@ -36,8 +37,15 @@
 }
 
 .minitab-ui-helper-text {
+  @extend %box-sizing;
+  @include typography-caption();
+  height: 25px;
   margin: 0;
-  @include font-size(14px);
-  padding-top: #{spacing(1, true) / 2}px;
-  padding-bottom: #{spacing(1, true) / 2}px;
+  padding-top: #{spacing(1, true) - 4}px;
+  padding-bottom: #{spacing(1, true) - 4}px;
+  color: $color-gray-700;
+
+  &.minitab-ui-helper-text-error {
+    color: $color-error-main;
+  }
 }

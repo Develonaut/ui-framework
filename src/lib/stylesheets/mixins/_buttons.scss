@@ -1,26 +1,3 @@
-@mixin font-size($size) {
-  font-size: $size;
-  font-size: calculateRem($size);
-}
-
-@mixin border($width: null, $style: null, $color: null, $radius: null) {
-  @if $width {
-    border-width: $width;
-  }
-
-  @if $style {
-    border-style: $style;
-  }
-
-  @if $color {
-    border-color: $color;
-  }
-
-  @if $radius {
-    border-radius: $radius;
-  }
-}
-
 @mixin button-hover($color, $contrastColor: false) {
   &:enabled:hover,
   &:not(.minitab-ui-button-disabled):hover {
@@ -53,11 +30,5 @@
   &:focus {
     border-color: $color;
     box-shadow: 0px 0px 0px 1px $color;
-  }
-}
-
-@mixin input-focus($color: $color-action-focus) {
-  &:focus {
-    outline-color: $color;
   }
 }

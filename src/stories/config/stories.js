@@ -1,23 +1,23 @@
-import { Button, ClickAwayListener, TextField } from "lib";
-import { PATHS } from "./paths";
+import * as lib from "lib";
 
 export const STORIES = {
+  /* PLOP_INJECT_CONFIG */
   BUTTON: {
-    title: PATHS.BUTTON,
-    path: PATHS.BUTTON,
-    Component: Button,
+    title: "Inputs/Button",
+    path: "Inputs/Button",
+    Component: lib.Button,
     componentName: "Button",
   },
   CLICK_AWAY_LISTENER: {
-    title: PATHS.CLICK_AWAY_LISTENER,
-    path: PATHS.CLICK_AWAY_LISTENER,
-    Component: ClickAwayListener,
+    title: "Utils/ClickAwayListener",
+    path: "Utils/ClickAwayListener",
+    Component: lib.ClickAwayListener,
     componentName: "ClickAwayListener",
   },
   TEXT_FIELD: {
-    title: PATHS.TEXT_FIELD,
-    path: PATHS.TEXT_FIELD,
-    Component: TextField,
-    componentName: "TextField"
-  }
-}
+    title: "Inputs/TextField",
+    path: "Inputs/TextField",
+    Component: lib.TextField,
+    componentName: "TextField",
+  },
+};

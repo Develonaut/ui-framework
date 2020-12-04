@@ -1,0 +1,29 @@
+import { Meta, ArgsTable } from "@storybook/addon-docs/blocks";
+import { {{pascalCase name}} } from "lib";
+import { StoryAnchor, ImportSnippet, Story } from "stories/components";
+import { STORIES } from "stories/config";
+
+export const config = STORIES.{{constantCase name}};
+
+<Meta title={config.title} component={config.Component} anchor />
+
+# {{pascalCase name}}
+
+#### {{ pascalCase name }} description here
+
+
+<StoryAnchor name="API" path={config.path} />
+
+## API
+
+#### Import
+
+<ImportSnippet componentName={config.componentName} />
+
+#### Playground
+
+<Story name="API">
+  {(args) => <{{pascalCase name}} {...args} />}
+</Story>
+
+<ArgsTable of={config.Component} story="API" />
