@@ -1,0 +1,61 @@
+import { useState } from "react";
+import { Meta, ArgsTable } from "@storybook/addon-docs/blocks";
+import { TextField } from "lib";
+import { StoryAnchor, ImportSnippet, Story } from "stories/components";
+import { STORIES } from "stories/config";
+
+export const config = STORIES.TEXT_FIELD;
+
+<Meta title={config.title} component={config.Component} anchor />
+
+## Text Field
+
+<Story name="Basic">
+  {() => {
+    const [value, setValue] = useState("");
+    const handleOnChange = (e) => setValue(e.target.value);
+    return (
+      <>
+        <TextField
+          label="A label"
+          value={value}
+          onChange={handleOnChange}
+          placeholder="Basic"
+        />
+        <TextField
+          label="With helper text"
+          value={value}
+          onChange={handleOnChange}
+          placeholder="Help!"
+          helperText="Some helper text"
+        />
+        <TextField label="Disabled" disabled value="Hello World" />
+      </>
+    );
+  }}
+</Story>
+
+<StoryAnchor name="API" path={config.path} />
+
+## API
+
+#### Import
+
+<ImportSnippet componentName={config.componentName} />
+
+#### Playground
+
+<Story
+  name="API"
+  args={{
+    value: "",
+    placeholder: "Enter some text",
+    error: false,
+    label: "Playground Input",
+    helperText: "I am helper text",
+  }}
+>
+  {(args) => <TextField {...args} />}
+</Story>
+
+<ArgsTable of={config.Component} story="API" />

@@ -1,0 +1,43 @@
+@import "../../stylesheets/main.scss";
+
+@mixin input-disabled {
+  cursor: not-allowed;
+  opacity: $percent-action-disabled;
+}
+
+.minitab-ui-text-field {
+  @extend %flex-column;
+
+  .minitab-ui-text-field-label {
+    @include font-size(14px);
+    padding-top: #{spacing(1, true) / 2}px;
+    padding-bottom: #{spacing(1, true) / 2}px;
+
+    &.minitab-ui-text-field-label-disabled {
+      @include input-disabled();
+    }
+  }
+
+  .minitab-ui-text-field-input {
+    @include font-size(14px);
+    @include border(1px, solid, $color-gray-500, $shape-border-radius-50);
+    @include input-focus();
+    padding: spacing(1);
+
+    &.minitab-ui-text-field-input-error {
+      @include border($color: $color-error-main);
+      @include input-focus($color-error-main);
+    }
+
+    &.minitab-ui-text-field-input-disabled {
+      @include input-disabled();
+    }
+  }
+}
+
+.minitab-ui-helper-text {
+  margin: 0;
+  @include font-size(14px);
+  padding-top: #{spacing(1, true) / 2}px;
+  padding-bottom: #{spacing(1, true) / 2}px;
+}

@@ -1,6 +1,6 @@
 // This is the UI Frameworks entry point. Exporting components in here will
 // make them public for third party consumptions.
 
-import { Button, ClickAwayListener } from "./components";
+import { Button, ClickAwayListener, TextField } from "./components";
 
-export { Button, ClickAwayListener };
+export { Button, ClickAwayListener, TextField };

@@ -1,17 +1,14 @@
 @import "../../stylesheets/main.scss";
 
 .minitab-ui-button {
-  @include font-size(13px);
   @extend %font-family;
   @extend %box-sizing;
+  @include font-size(13px);
+  @include border(1px, solid, transparent, $shape-border-radius-50);
   background-color: transparent;
-  border-color: transparent;
   outline: none;
   text-align: center;
   padding: spacing();
-  border-width: 1px;
-  border-style: solid;
-  border-radius: $shape-border-radius-50;
   cursor: pointer;
   margin: spacing();
   display: inline-block;

@@ -1,4 +1,4 @@
-import { Button, ClickAwayListener } from "lib";
+import { Button, ClickAwayListener, TextField } from "lib";
 import { PATHS } from "./paths";
 
 export const STORIES = {
@@ -14,4 +14,10 @@ export const STORIES = {
     Component: ClickAwayListener,
     componentName: "ClickAwayListener",
   },
+  TEXT_FIELD: {
+    title: PATHS.TEXT_FIELD,
+    path: PATHS.TEXT_FIELD,
+    Component: TextField,
+    componentName: "TextField"
+  }
 }
