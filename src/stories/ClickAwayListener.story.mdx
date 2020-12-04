@@ -1,20 +1,12 @@
 import { useState, useEffect } from "react";
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  SourceState,
-  Source,
-} from "@storybook/addon-docs/blocks";
-import { StoryAnchor, ImportSnippet } from "stories/components";
+import { Meta, ArgsTable } from "@storybook/addon-docs/blocks";
+import { StoryAnchor, ImportSnippet, Story } from "stories/components";
 import { ClickAwayListener, Button } from "lib/components";
-import { paths } from "stories/config";
+import { STORIES } from "stories/config";
 
-export const componentName = "ClickAwayListener";
-export const storyPath = paths.clickAwayListener;
+export const config = STORIES.CLICK_AWAY_LISTENER;
 
-<Meta title={storyPath} component={ClickAwayListener} anchor />
+<Meta title={config.title} component={config.Component} anchor />
 
 <style>{`
   .root {
@@ -31,41 +23,34 @@ export const storyPath = paths.clickAwayListener;
   }
 `}</style>
 
-<StoryAnchor name="Basic" />
+<StoryAnchor name="API" path={config.path} />
 
 # ClickAwayListener
 
 #### Detect if a click event happened outside of an element. It listens for clicks that occur somewhere in the document.
 
-<Canvas isExpanded withSource={SourceState.OPEN}>
-  <Story
-    name="API"
-    parameters={{
-      layout: "centered",
-    }}
-  >
-    {() => {
-      const [open, setOpen] = useState(false);
-      const handleClick = () => setOpen((prev) => !prev);
-      const handleClickAway = () => setOpen(false);
-      return (
-        <div className="root">
-          <Button onClick={handleClick}>Click Me</Button>
-          <ClickAwayListener onClickAway={handleClickAway}>
-            {open ? (
-              <div className="popup">
-                Click me, I will stay visible until you click outside.
-              </div>
-            ) : null}
-          </ClickAwayListener>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
+<Story name="API">
+  {() => {
+    const [open, setOpen] = useState(false);
+    const handleClick = () => setOpen((prev) => !prev);
+    const handleClickAway = () => setOpen(false);
+    return (
+      <div className="root">
+        <Button onClick={handleClick}>Click Me</Button>
+        <ClickAwayListener onClickAway={handleClickAway}>
+          {open ? (
+            <div className="popup">
+              Click me, I will stay visible until you click outside.
+            </div>
+          ) : null}
+        </ClickAwayListener>
+      </div>
+    );
+  }}
+</Story>
 
 #### Import
 
-<ImportSnippet componentName={componentName} />
+<ImportSnippet componentName={config.componentName} />
 
-<ArgsTable of={ClickAwayListener} story="API" />
+<ArgsTable of={config.Component} story="API" />

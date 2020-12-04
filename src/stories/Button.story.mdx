@@ -1,24 +1,11 @@
-import {
-  Meta,
-  Story,
-  Canvas,
-  ArgsTable,
-  SourceState,
-  Source,
-  Anchor,
-  Title,
-  Heading,
-  Subheading,
-} from "@storybook/addon-docs/blocks";
+import { Meta, ArgsTable } from "@storybook/addon-docs/blocks";
 import { Button } from "lib/components";
-import { StoryAnchor, ImportSnippet } from "stories/components";
-import { getPackageName, getImportSnippet } from "stories/utils";
-import { paths } from "stories/config";
+import { StoryAnchor, ImportSnippet, Story } from "stories/components";
+import { STORIES } from "stories/config";
 
-export const componentName = "Button";
-export const storyPath = paths.button;
+export const config = STORIES.BUTTON;
 
-<Meta title={storyPath} component={Button} anchor />
+<Meta title={config.title} component={config.Component} anchor />
 
 # Button
 
@@ -36,23 +23,16 @@ Buttons communicate actions that users can take. They are typically placed throu
 
 Contained buttons are high-emphasis, distinguished by their use of elevation and fill. They contain actions that are primary to your app.
 
-<Canvas isExpanded withSource={SourceState.OPEN}>
-  <Story
-    name="Contained"
-    parameters={{
-      layout: "centered",
-    }}
-  >
-    <Button>Default</Button>
-    <Button color="primary">Primary</Button>
-    <Button disabled>Disabled</Button>
-    <Button href="#contained-buttons" color="primary">
-      Link
-    </Button>
-  </Story>
-</Canvas>
+<Story name="Contained">
+  <Button>Default</Button>
+  <Button color="primary">Primary</Button>
+  <Button disabled>Disabled</Button>
+  <Button href="#contained-buttons" color="primary">
+    Link
+  </Button>
+</Story>
 
-<StoryAnchor name="Text" path={storyPath} />
+<StoryAnchor name="Text" path={config.path} />
 
 ## Text Buttons
 
@@ -63,44 +43,31 @@ Text buttons are typically used for less-pronounced actions, including those loc
 
 In cards, text buttons help maintain an emphasis on card content.
 
-<Canvas isExpanded withSource={SourceState.OPEN}>
-  <Story
-    name="Text"
-    parameters={{
-      layout: "centered",
-    }}
-  >
-    <Button variant="text">Default</Button>
-    <Button variant="text" color="primary">
-      Primary
-    </Button>
-    <Button variant="text" disabled>
-      Disabled
-    </Button>
-    <Button variant="text" color="primary" href="#text-buttons">
-      Link
-    </Button>
-  </Story>
-</Canvas>
+<Story name="Text">
+  <Button variant="text">Default</Button>
+  <Button variant="text" color="primary">
+    Primary
+  </Button>
+  <Button variant="text" disabled>
+    Disabled
+  </Button>
+  <Button variant="text" color="primary" href="#text-buttons">
+    Link
+  </Button>
+</Story>
 
-<StoryAnchor name="API" path={storyPath} />
+<StoryAnchor name="API" path={config.path} />
 
 ## API
 
 #### Import
 
-<ImportSnippet componentName={componentName} />
+<ImportSnippet componentName={config.componentName} />
 
 #### Playground
 
-<Canvas>
-  <Story
-    name="API"
-    args={{ children: "Default" }}
-    parameters={{ layout: "centered" }}
-  >
-    {(args) => <Button {...args} />}
-  </Story>
-</Canvas>
+<Story name="API" args={{ children: "Default" }}>
+  {(args) => <Button {...args} />}
+</Story>
 
-<ArgsTable of={Button} story="API" />
+<ArgsTable of={config.Component} story="API" />
