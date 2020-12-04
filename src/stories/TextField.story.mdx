@@ -40,13 +40,13 @@ The TextField component is a complete form control including a label, input and 
   </form>
 </Story>
 
-<StoryAnchor name="Form Props" path={config.path} />
+<StoryAnchor name="Attributes" path={config.path} />
 
-## Form Props
+## Attributes
 
-Standard form attributes are supported e.g. `disabled`, `type`, etc. as well as a `helperText` which is used to give context about a field’s input, such as how the input will be used.
+Native input attributes are supported e.g. `disabled`, `type`, etc. as well as a `helperText` which is used to give context about a field’s input, such as how the input will be used.
 
-<Story name="Form Props">
+<Story name="Attributes">
   <form className="root root-centered">
     <TextField placeholder="Basic" />
     <TextField placeholder="Disabled" label="Disabled" disabled />
@@ -62,6 +62,7 @@ Standard form attributes are supported e.g. `disabled`, `type`, etc. as well as 
       defaultValue="Hello World"
       placeholder="Hi!"
     />
+    <TextField label="Password" type="password" />
   </form>
 </Story>
 
