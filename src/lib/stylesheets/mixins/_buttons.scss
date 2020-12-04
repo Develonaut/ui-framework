@@ -1,8 +1,3 @@
-@mixin font-size($size) {
-  font-size: $size;
-  font-size: calculateRem($size);
-}
-
 @mixin button-hover($color, $contrastColor: false) {
   &:enabled:hover,
   &:not(.minitab-ui-button-disabled):hover {
@@ -31,9 +26,9 @@
   }
 }
 
-@mixin button-focus() {
+@mixin button-focus($color: $color-action-focus) {
   &:focus {
-    border-color: $color-action-focus;
-    box-shadow: 0px 0px 0px 1px $color-action-focus;
+    border-color: $color;
+    box-shadow: 0px 0px 0px 1px $color;
   }
 }

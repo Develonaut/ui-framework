@@ -1,0 +1,19 @@
+@import "./_buttons", "./_inputs", "./_typography";
+
+@mixin border($width: null, $style: null, $color: null, $radius: null) {
+  @if $width {
+    border-width: $width;
+  }
+
+  @if $style {
+    border-style: $style;
+  }
+
+  @if $color {
+    border-color: $color;
+  }
+
+  @if $radius {
+    border-radius: $radius;
+  }
+}

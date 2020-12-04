@@ -1,0 +1,143 @@
+import { useState } from "react";
+import { Meta, ArgsTable } from "@storybook/addon-docs/blocks";
+import { TextField } from "lib";
+import { StoryAnchor, ImportSnippet, Story } from "stories/components";
+import { STORIES } from "stories/config";
+
+export const config = STORIES.TEXT_FIELD;
+
+<Meta title={config.title} component={config.Component} anchor />
+
+<style>{`
+  .root {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .root-centered {
+    align-items: center;
+  }
+  .root > * {
+    width: 25ch;
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+`}</style>
+
+# Text Field
+
+#### Text fields let users enter and edit text.
+
+Text fields allow users to enter text into a UI. They typically appear in forms and dialogs.
+
+## Basic
+
+The TextField component is a complete form control including a label, input and helper text.
+
+<Story name="Basic">
+  <form className="root root-centered">
+    <TextField placeholder="Basic" />
+  </form>
+</Story>
+
+<StoryAnchor name="Form Props" path={config.path} />
+
+## Form Props
+
+Standard form attributes are supported e.g. `disabled`, `type`, etc. as well as a `helperText` which is used to give context about a field’s input, such as how the input will be used.
+
+<Story name="Form Props">
+  <form className="root root-centered">
+    <TextField placeholder="Basic" />
+    <TextField
+      placeholder="Required"
+      label="Required"
+      required
+      helperText="This is some helper text"
+    />
+    <TextField placeholder="Disabled" label="Disabled" disabled />
+    <TextField label="Number" placeholder="22" type="number" />
+    <TextField
+      label="Read Only"
+      defaultValue="Hello World"
+      readOnly
+      helperText="I'm read only"
+    />
+    <TextField
+      label="Default Value"
+      defaultValue="Hello World"
+      placeholder="Hi!"
+    />
+  </form>
+</Story>
+
+<StoryAnchor name="Validation" path={config.path} />
+
+## Validation
+
+The `error` prop toggles the error state, the `helperText` prop can then be used to provide feedback to the user about the error.
+
+<Story name="Validation">
+  {() => {
+    const [value, setValue] = useState("Hello World");
+    const handleOnChange = (e) => setValue(e.target.value);
+    const error = value === "Hello World";
+    const helperText = error ? "Must be a different value" : null;
+    return (
+      <form className="root root-centered">
+        <TextField onChange={handleOnChange} value={value} error={error} />
+        <TextField
+          onChange={handleOnChange}
+          value={value}
+          helperText={helperText}
+          error={error}
+        />
+      </form>
+    );
+  }}
+</Story>
+
+<StoryAnchor name="Multiline" path={config.path} />
+
+## Multiline
+
+The `multiline` prop transforms the text field into a [`<textarea>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) element.
+
+<Story name="Multiline">
+  <form className="root">
+    <TextField placeholder="Basic Multiline" multiline />
+    <TextField
+      multiline
+      label="Multiline"
+      defaultValue="Hello World"
+      rows={4}
+    />
+  </form>
+</Story>
+
+<StoryAnchor name="API" path={config.path} />
+
+## API
+
+#### Import
+
+<ImportSnippet componentName={config.componentName} />
+
+#### Playground
+
+<Story
+  name="API"
+  args={{
+    placeholder: "Enter some text",
+    label: "Playground Input",
+    helperText: "I am helper text",
+  }}
+>
+  {(args) => (
+    <form className="root root-centered">
+      <TextField {...args} />
+    </form>
+  )}
+</Story>
+
+<ArgsTable of={config.Component} story="API" />
