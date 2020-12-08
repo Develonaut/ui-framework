@@ -1,0 +1,21 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
+import { Story } from "stories/components";
+import { Canvas, SourceState } from "@storybook/addon-docs/blocks";
+import { ThemeProvider } from "lib";
+
+import color from "../lib/stylesheets/_variables.scss";
+
+<Meta title="Getting Started/Colors" />
+
+# Colors
+
+#### Use typography to present your design and content as clearly and efficiently as possible.
+
+<ColorPalette>
+  {console.log(color)}
+  <ColorItem
+    title="theme.color.primary"
+    subtitle="Coral"
+    colors={[color.blue]}
+  />
+</ColorPalette>

@@ -1,0 +1,73 @@
+@import "../../stylesheets/main.scss";
+
+.minitab-ui-theme-provider {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1,
+  .minitab-ui-typography-h1 {
+    @include typography-h1();
+  }
+
+  h2,
+  .minitab-ui-typography-h2 {
+    @include typography-h2();
+  }
+
+  h3,
+  .minitab-ui-typography-h3 {
+    @include typography-h3();
+  }
+
+  h4,
+  .minitab-ui-typography-h4 {
+    @include typography-h4();
+  }
+
+  h5,
+  .minitab-ui-typography-h5 {
+    @include typography-h5();
+  }
+
+  h6,
+  .minitab-ui-typography-h6 {
+    @include typography-h6();
+  }
+
+  .minitab-ui-typography-subtitle1 {
+    @include typography-subtitle1();
+  }
+
+  .minitab-ui-typography-subtitle2 {
+    @include typography-subtitle2();
+  }
+
+  .minitab-ui-typography-body1 {
+    @include typography-body1();
+  }
+
+  .minitab-ui-typography-body2 {
+    @include typography-body2();
+  }
+
+  .minitab-ui-typography-button {
+    @include typography-button();
+  }
+
+  .minitab-ui-typography-caption {
+    @include typography-caption();
+  }
+
+  .minitab-ui-typography-overline {
+    @include typography-overline();
+  }
+}

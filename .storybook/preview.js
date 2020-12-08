@@ -1,3 +1,6 @@
+import React from "react";
+import { ThemeProvider } from "../src/lib/components";
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   // Order of the toolbar tabs
@@ -12,5 +15,13 @@ export const parameters = {
     },
   },
   // Sets the default tab to "Docs" when navigating between stories.
-  viewMode: 'docs',
+  viewMode: "docs",
 };
+
+export const decorators = [
+  (Story) => (
+    <ThemeProvider>
+      <Story />
+    </ThemeProvider>
+  ),
+];

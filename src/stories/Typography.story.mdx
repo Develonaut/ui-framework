@@ -1,0 +1,58 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Story } from "stories/components";
+import { Canvas, SourceState } from "@storybook/addon-docs/blocks";
+import { ThemeProvider } from "lib";
+
+<Meta title="Getting Started/Typography" />
+
+<style>{`
+  .root h1,
+  .root h2,
+  .root h3,
+  .root h4
+  .root h5,
+  .root h6 {
+    color: inherit;
+    position: inherit;
+    cursor: inherit;
+    border: none;
+  } 
+`}</style>
+
+# Typography
+
+#### Use typography to present your design and content as clearly and efficiently as possible.
+
+<Canvas className="root">
+  <ThemeProvider>
+    <h1>h1. Heading</h1>
+    <h2>h2. Heading</h2>
+    <h3>h3. Heading</h3>
+    <h4>h4. Heading</h4>
+    <h5>h5. Heading</h5>
+    <h6>h6. Heading</h6>
+    <p className="minitab-ui-typography-subtitle1">
+      subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+      blanditiis tenetur
+    </p>
+    <p className="minitab-ui-typography-subtitle2">
+      subtitle2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+      blanditiis tenetur
+    </p>
+    <p className="minitab-ui-typography-body1">
+      body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+      blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,
+      neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti?
+      Eum quasi quidem quibusdam.
+    </p>
+    <p className="minitab-ui-typography-body2">
+      body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+      blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,
+      neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti?
+      Eum quasi quidem quibusdam.
+    </p>
+    <p className="minitab-ui-typography-button">button text</p>
+    <p className="minitab-ui-typography-caption">caption text</p>
+    <p className="minitab-ui-typography-overline">overline text</p>
+  </ThemeProvider>
+</Canvas>
