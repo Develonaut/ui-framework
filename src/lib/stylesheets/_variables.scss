@@ -2,6 +2,11 @@
 $color-common-black: #000000;
 $color-common-white: #ffffff;
 
+$common-colors: (
+  black: $color-common-black,
+  white: $color-common-white,
+);
+
 $color-gray-50: #fafafa;
 $color-gray-100: #f5f5f5;
 $color-gray-200: #eeeeee;
@@ -16,6 +21,23 @@ $color-gray-A100: #d5d5d5;
 $color-gray-A200: #aaaaaa;
 $color-gray-A400: #303030;
 $color-gray-A700: #616161;
+
+$grays: (
+  50: $color-gray-50,
+  100: $color-gray-100,
+  200: $color-gray-200,
+  300: $color-gray-300,
+  400: $color-gray-400,
+  500: $color-gray-500,
+  600: $color-gray-600,
+  700: $color-gray-700,
+  800: $color-gray-800,
+  900: $color-gray-900,
+  A100: $color-gray-A100,
+  A200: $color-gray-A200,
+  A400: $color-gray-A400,
+  A700: $color-gray-A700,
+);
 
 $color-default-light: #ffffff;
 $color-default-main: #efefef;
@@ -37,10 +59,36 @@ $color-success-main: #4caf50;
 $color-success-dark: #388e3c;
 $color-success-contrast-text: #000000;
 
+$theme-colors: (
+  defaultLight: $color-default-light,
+  defaultMain: $color-default-main,
+  defaultDark: $color-default-dark,
+  defaultContrastText: $color-default-contrast-text,
+  primaryLight: $color-primary-light,
+  primaryMain: $color-primary-main,
+  primaryDark: $color-primary-dark,
+  primaryContrastText: $color-primary-contrast-text,
+  errorLight: $color-error-light,
+  errorMain: $color-error-main,
+  errorDark: $color-error-dark,
+  errorContrastText: $color-error-contrast-text,
+  successLight: $color-success-light,
+  successMain: $color-success-main,
+  successDark: $color-success-dark,
+  successContrastText: $color-success-contrast-text,
+);
+
 $color-text-primary: rgba(0, 0, 0, 0.87);
 $color-text-secondary: rgba(0, 0, 0, 0.54);
 $color-text-disabled: rgba(0, 0, 0, 0.38);
 $color-text-hint: rgba(0, 0, 0, 0.38);
+
+$text-colors: (
+  primary: $color-text-primary,
+  secondary: $color-text-secondary,
+  disabled: $color-text-disabled,
+  hint: $color-text-hint,
+);
 
 $color-action-active: rgba(0, 0, 0, 0.54);
 $color-action-hover: rgba(0, 0, 0, 0.04);
@@ -48,6 +96,15 @@ $color-action-selected: rgba(0, 0, 0, 0.08);
 $color-action-disabled: rgba(0, 0, 0, 0.26);
 $color-action-disabled-background: rgba(0, 0, 0, 0.12);
 $color-action-focus: #293b51;
+
+$action-colors: (
+  active: $color-action-active,
+  hover: $color-action-hover,
+  selected: $color-action-selected,
+  disabled: $color-action-disabled,
+  disabledBackground: $color-action-disabled-background,
+  focus: $color-action-focus,
+);
 
 // Percentages
 $percent-action-hover: 4%;

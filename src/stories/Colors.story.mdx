@@ -2,20 +2,113 @@ import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
 import { Story } from "stories/components";
 import { Canvas, SourceState } from "@storybook/addon-docs/blocks";
 import { ThemeProvider } from "lib";
+import { paramCase, capitalCase } from "change-case";
 
-import color from "../lib/stylesheets/_variables.scss";
+import commonColorsExport from "stories/stylesheets/exports/common-colors.module.scss";
+import graysExport from "stories/stylesheets/exports/grays.module.scss";
+import themeColorsExport from "stories/stylesheets/exports/theme-colors.module.scss";
+import textColorsExport from "stories/stylesheets/exports/text-colors.module.scss";
+import actionColorsExport from "stories/stylesheets/exports/action-colors.module.scss";
 
 <Meta title="Getting Started/Colors" />
+
+export const ColorSwatches = ({
+  colors,
+  titleFormatter,
+  subtitleFormatter,
+}) => (
+  <ColorPalette>
+    {Object.entries(colors).map(([key, value]) => (
+      <ColorItem
+        title={typeof titleFormatter === "function" ? titleFormatter(key) : key}
+        subtitle={
+          typeof subtitleFormatter === "function" ? subtitleFormatter(key) : key
+        }
+        colors={[value]}
+      />
+    ))}
+  </ColorPalette>
+);
 
 # Colors
 
 #### Use typography to present your design and content as clearly and efficiently as possible.
 
-<ColorPalette>
-  {console.log(color)}
-  <ColorItem
-    title="theme.color.primary"
-    subtitle="Coral"
-    colors={[color.blue]}
+## Theme Colors
+
+<Story name="Theme" disableCanvas>
+  <ColorPalette>
+    <ColorItem
+      title="Default"
+      colors={{
+        "$colors-default-light": themeColorsExport.defaultLight,
+        "$colors-default-main": themeColorsExport.defaultMain,
+        "$colors-default-dark": themeColorsExport.defaultDark,
+      }}
+    />
+    <ColorItem
+      title="Primary"
+      colors={{
+        "$colors-primary-light": themeColorsExport.primaryLight,
+        "$colors-primary-main": themeColorsExport.primaryMain,
+        "$colors-primary-dark": themeColorsExport.primaryDark,
+      }}
+    />
+    <ColorItem
+      title="Error"
+      colors={[
+        themeColorsExport.errorLight,
+        themeColorsExport.errorMain,
+        themeColorsExport.errorDark,
+      ]}
+    />
+    <ColorItem
+      title="Error"
+      colors={[
+        themeColorsExport.successLight,
+        themeColorsExport.successMain,
+        themeColorsExport.successDark,
+      ]}
+    />
+  </ColorPalette>
+</Story>
+
+## Common
+
+<Story name="Common" disableCanvas>
+  <ColorSwatches
+    colors={commonColorsExport}
+    titleFormatter={(val) => capitalCase(val)}
+    subtitleFormatter={(val) => `$colors-common-${val}`}
   />
-</ColorPalette>
+</Story>
+
+## Grays
+
+<Story name="Grays" disableCanvas>
+  <ColorSwatches
+    colors={graysExport}
+    titleFormatter={(val) => capitalCase(val)}
+    subtitleFormatter={(val) => `$colors-grays-${val}`}
+  />
+</Story>
+
+## Text
+
+<Story name="Text" disableCanvas>
+  <ColorSwatches
+    colors={textColorsExport}
+    titleFormatter={(val) => capitalCase(val)}
+    subtitleFormatter={(val) => `$colors-text-${val}`}
+  />
+</Story>
+
+## Actions
+
+<Story name="Actions" disableCanvas>
+  <ColorSwatches
+    colors={actionColorsExport}
+    titleFormatter={(val) => capitalCase(val)}
+    subtitleFormatter={(val) => `$colors-action-${val}`}
+  />
+</Story>

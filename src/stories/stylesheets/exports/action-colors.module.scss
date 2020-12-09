@@ -1,0 +1,7 @@
+@import "lib/stylesheets/main.scss";
+
+:export {
+  @each $key, $value in $action-colors {
+    #{$key}: $value;
+  }
+}
