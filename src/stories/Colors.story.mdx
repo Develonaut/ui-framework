@@ -3,14 +3,17 @@ import { Story } from "stories/components";
 import { Canvas, SourceState } from "@storybook/addon-docs/blocks";
 import { ThemeProvider } from "lib";
 import { paramCase, capitalCase } from "change-case";
+import { STORIES } from "stories/config";
 
 import commonColorsExport from "stories/stylesheets/exports/common-colors.module.scss";
 import graysExport from "stories/stylesheets/exports/grays.module.scss";
-import themeColorsExport from "stories/stylesheets/exports/theme-colors.module.scss";
+import paletteColorsExport from "stories/stylesheets/exports/palette-colors.module.scss";
 import textColorsExport from "stories/stylesheets/exports/text-colors.module.scss";
 import actionColorsExport from "stories/stylesheets/exports/action-colors.module.scss";
 
-<Meta title="Getting Started/Colors" />
+export const config = STORIES.COLORS;
+
+<Meta title={config.title} />
 
 export const ColorSwatches = ({
   colors,
@@ -32,43 +35,60 @@ export const ColorSwatches = ({
 
 # Colors
 
-#### Use typography to present your design and content as clearly and efficiently as possible.
+#### Colors help convey meaning through the use of color in our applications. Out of the box these are UI-Frameworks brand colors.
 
-## Theme Colors
+<br />
 
-<Story name="Theme" disableCanvas>
+## Palette
+
+Palette colors are used to service a given intention within an application. The UI-Framework exposes the following palette colors (accessible using the `main.scss` or `_variables.scss`):
+
+- Primary - used to represent primary interface elements for a user. It's the color displayed most frequently across your app's screens and components.
+- Secondary - used to represent secondary interface elements for a user. It provides more ways to accent and distinguish your product. Having it is optional.
+- Error - used to represent interface elements that the user should be made aware of.
+- Warning - used to represent potentially dangerous actions or important messages.
+- Info - used to present information to the user that is neutral and not necessarily important.
+- Success - used to indicate the successful completion of an action that user triggered.
+
+<br />
+
+<Story name="Palette" disableCanvas>
   <ColorPalette>
     <ColorItem
-      title="Default"
-      colors={{
-        "$colors-default-light": themeColorsExport.defaultLight,
-        "$colors-default-main": themeColorsExport.defaultMain,
-        "$colors-default-dark": themeColorsExport.defaultDark,
-      }}
-    />
-    <ColorItem
       title="Primary"
+      subtitle="$colors-primary-(light|main|dark)"
       colors={{
-        "$colors-primary-light": themeColorsExport.primaryLight,
-        "$colors-primary-main": themeColorsExport.primaryMain,
-        "$colors-primary-dark": themeColorsExport.primaryDark,
+        light: paletteColorsExport.primaryLight,
+        main: paletteColorsExport.primaryMain,
+        dark: paletteColorsExport.primaryDark,
       }}
     />
     <ColorItem
       title="Error"
-      colors={[
-        themeColorsExport.errorLight,
-        themeColorsExport.errorMain,
-        themeColorsExport.errorDark,
-      ]}
+      subtitle="$colors-error-(light|main|dark)"
+      colors={{
+        light: paletteColorsExport.errorLight,
+        main: paletteColorsExport.errorMain,
+        dark: paletteColorsExport.errorDark,
+      }}
     />
     <ColorItem
-      title="Error"
-      colors={[
-        themeColorsExport.successLight,
-        themeColorsExport.successMain,
-        themeColorsExport.successDark,
-      ]}
+      title="Success"
+      subtitle="$colors-success-(light|main|dark)"
+      colors={{
+        light: paletteColorsExport.successLight,
+        main: paletteColorsExport.successMain,
+        dark: paletteColorsExport.successDark,
+      }}
+    />
+    <ColorItem
+      title="Default"
+      subtitle="$colors-default-(light|main|dark)"
+      colors={{
+        light: paletteColorsExport.defaultLight,
+        main: paletteColorsExport.defaultMain,
+        dark: paletteColorsExport.defaultDark,
+      }}
     />
   </ColorPalette>
 </Story>

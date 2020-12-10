@@ -59,7 +59,7 @@ $color-success-main: #4caf50;
 $color-success-dark: #388e3c;
 $color-success-contrast-text: #000000;
 
-$theme-colors: (
+$palette-colors: (
   defaultLight: $color-default-light,
   defaultMain: $color-default-main,
   defaultDark: $color-default-dark,
@@ -127,3 +127,13 @@ $typography-font-weight-light: 300;
 $typography-font-weight-regular: 400;
 $typography-font-weight-medium: 500;
 $typography-font-weight-bold: 700;
+
+$typography: (
+  htmlFontSize: $typography-html-font-size,
+  fontSize: $typography-font-size,
+  fontFamily: $typography-font-family,
+  fontWeightLight: $typography-font-weight-light,
+  fontWeightRegular: $typography-font-weight-regular,
+  fontWeightMedium: $typography-font-weight-medium,
+  fontWeightBold: $typography-font-weight-bold,
+);

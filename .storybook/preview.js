@@ -11,7 +11,7 @@ export const parameters = {
   options: {
     // Sort the stories in the sidebar
     storySort: {
-      order: ["Getting Started", "Inputs", "Utils"],
+      order: ["Getting Started", "Customization", "Inputs", "Utils"],
     },
   },
   // Sets the default tab to "Docs" when navigating between stories.

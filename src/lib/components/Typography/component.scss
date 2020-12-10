@@ -1,0 +1,96 @@
+@import "../../stylesheets/main.scss";
+
+.minitab-ui-typography {
+  margin: 0;
+  padding: 0;
+
+  &.minitab-ui-typography-h1 {
+    @include typography-h1();
+  }
+
+  &.minitab-ui-typography-h2 {
+    @include typography-h2();
+  }
+
+  &.minitab-ui-typography-h3 {
+    @include typography-h3();
+  }
+
+  &.minitab-ui-typography-h4 {
+    @include typography-h4();
+  }
+
+  &.minitab-ui-typography-h5 {
+    @include typography-h5();
+  }
+
+  &.minitab-ui-typography-h6 {
+    @include typography-h6();
+  }
+
+  &.minitab-ui-typography-subtitle1 {
+    @include typography-subtitle1();
+  }
+
+  &.minitab-ui-typography-subtitle2 {
+    @include typography-subtitle2();
+  }
+
+  &.minitab-ui-typography-body1 {
+    @include typography-body1();
+  }
+
+  &.minitab-ui-typography-body2 {
+    @include typography-body2();
+  }
+
+  &.minitab-ui-typography-button {
+    @include typography-button();
+  }
+
+  &.minitab-ui-typography-caption {
+    @include typography-caption();
+  }
+
+  &.minitab-ui-typography-overline {
+    @include typography-overline();
+  }
+
+  &.minitab-ui-typography-gutter-bottom {
+    margin-bottom: spacing();
+  }
+
+  &.minitab-ui-typography-paragraph {
+    margin-bottom: spacing(2);
+  }
+
+  &.minitab-ui-typography-display-inline {
+    display: inline;
+  }
+
+  &.minitab-ui-typography-display-block {
+    display: block;
+  }
+
+  &.minitab-ui-typography-no-wrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &.minitab-ui-typography-align-left {
+    text-align: left;
+  }
+
+  &.minitab-ui-typography-align-center {
+    text-align: center;
+  }
+
+  &.minitab-ui-typography-align-right {
+    text-align: right;
+  }
+
+  &.minitab-ui-typography-align-justify {
+    text-align: justify;
+  }
+}

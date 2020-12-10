@@ -2,6 +2,16 @@ import * as lib from "lib";
 
 export const STORIES = {
   /* PLOP_INJECT_CONFIG */
+  COLORS: {
+    title: "Customization/Colors",
+    path: "Customization/Colors",
+  },
+  TYPOGRAPHY: {
+    title: "Customization/Typography",
+    path: "Customization/Typography",
+    Component: lib.Typography,
+    componentName: "Typography",
+  },
   BUTTON: {
     title: "Inputs/Button",
     path: "Inputs/Button",

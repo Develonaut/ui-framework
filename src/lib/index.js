@@ -6,6 +6,7 @@ import {
   ClickAwayListener,
   TextField,
   ThemeProvider,
+  Typography,
 } from "./components";
 
-export { Button, ClickAwayListener, TextField, ThemeProvider };
+export { Button, ClickAwayListener, TextField, ThemeProvider, Typography };
