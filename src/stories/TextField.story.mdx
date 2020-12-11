@@ -128,11 +128,7 @@ The `multiline` prop transforms the text field into a [`<textarea>`](https://dev
     helperText: "I am helper text",
   }}
 >
-  {(args) => (
-    <form className="root root-centered">
-      <TextField {...args} />
-    </form>
-  )}
+  {(args) => <TextField {...args} />}
 </Story>
 
 <ArgsTable of={config.Component} story="API" />

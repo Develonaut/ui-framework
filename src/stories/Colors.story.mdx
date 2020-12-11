@@ -1,0 +1,138 @@
+import { Meta, ColorPalette, ColorItem, Subtitle, Title, Heading, Subheading } from "@storybook/addon-docs/blocks";
+import { Story } from "stories/components";
+import { Canvas, SourceState } from "@storybook/addon-docs/blocks";
+import { ThemeProvider } from "lib";
+import { paramCase, capitalCase } from "change-case";
+import { STORIES } from "stories/config";
+
+import commonColorsExport from "stories/stylesheets/exports/common-colors.module.scss";
+import graysExport from "stories/stylesheets/exports/grays.module.scss";
+import paletteColorsExport from "stories/stylesheets/exports/palette-colors.module.scss";
+import textColorsExport from "stories/stylesheets/exports/text-colors.module.scss";
+import actionColorsExport from "stories/stylesheets/exports/action-colors.module.scss";
+
+export const config = STORIES.COLORS;
+
+<Meta title={config.title} />
+
+export const ColorSwatches = ({
+  colors,
+  titleFormatter,
+  subtitleFormatter,
+}) => (
+  <ColorPalette>
+    {Object.entries(colors).map(([key, value]) => (
+      <ColorItem
+        title={typeof titleFormatter === "function" ? titleFormatter(key) : key}
+        subtitle={
+          typeof subtitleFormatter === "function" ? subtitleFormatter(key) : key
+        }
+        colors={[value]}
+      />
+    ))}
+  </ColorPalette>
+);
+
+<Title>Colors</Title>
+<Subtitle>Colors help convey meaning through the use of color in our applications. Out of the box these are UI-Frameworks brand colors.</Subtitle>
+
+The UI-Framework exposes the following palette colors (accessible using the `main.scss` or `_variables.scss`):
+
+Palette colors are used to service a given intention within an application. The UI-Framework exposes the following palette colors (accessible using the `main.scss` or `_variables.scss`):
+
+- Primary - used to represent primary interface elements for a user. It's the color displayed most frequently across your app's screens and components.
+- Secondary - used to represent secondary interface elements for a user. It provides more ways to accent and distinguish your product. Having it is optional.
+- Error - used to represent interface elements that the user should be made aware of.
+- Warning - used to represent potentially dangerous actions or important messages.
+- Info - used to present information to the user that is neutral and not necessarily important.
+- Success - used to indicate the successful completion of an action that user triggered.
+
+<br />
+
+<Heading>Palette</Heading>
+
+Palette colors are used to service a given intention within an application.
+
+<Story name="Palette" disableCanvas>
+  <ColorPalette>
+    <ColorItem
+      title="Primary"
+      subtitle="Represent primary interface elements for a user.
+        It's the color displayed most frequently across
+        your app's screens and components."
+      colors={{
+        "$colors-primary-light": paletteColorsExport.primaryLight,
+        "$colors-primary-main": paletteColorsExport.primaryMain,
+        "$colors-primary-dark": paletteColorsExport.primaryDark,
+      }}
+    />
+    <ColorItem
+      title="Error"
+      subtitle="Represents interface elements that the user should be made aware of."
+      colors={{
+        "$colors-error-light": paletteColorsExport.errorLight,
+        "$colors-error-main": paletteColorsExport.errorMain,
+        "$colors-error-dark": paletteColorsExport.errorDark,
+      }}
+    />
+    <ColorItem
+      title="Success"
+      subtitle="Represents successful completion of an action that user triggered."
+      colors={{
+        "$colors-success-light": paletteColorsExport.successLight,
+        "$colors-success-main": paletteColorsExport.successMain,
+        "$colors-success-dark": paletteColorsExport.successDark,
+      }}
+    />
+    <ColorItem
+      title="Default"
+      subtitle="Represents default interface elements for a user. It gives default decoration to interface elements without calling to much attention"
+      colors={{
+        "$colors-default-light": paletteColorsExport.defaultLight,
+        "colors-default-main": paletteColorsExport.defaultMain,
+        "colors-default-dark": paletteColorsExport.defaultDark,
+      }}
+    />
+  </ColorPalette>
+</Story>
+
+## Common
+Common colors are general colors used througout an application.
+
+<Story name="Common" disableCanvas>
+  <ColorSwatches
+    colors={commonColorsExport}
+    titleFormatter={(val) => capitalCase(val)}
+    subtitleFormatter={(val) => `$colors-common-${val}`}
+  />
+</Story>
+
+## Grays
+
+<Story name="Grays" disableCanvas>
+  <ColorSwatches
+    colors={graysExport}
+    titleFormatter={(val) => capitalCase(val)}
+    subtitleFormatter={(val) => `$colors-grays-${val}`}
+  />
+</Story>
+
+## Text
+
+<Story name="Text" disableCanvas>
+  <ColorSwatches
+    colors={textColorsExport}
+    titleFormatter={(val) => capitalCase(val)}
+    subtitleFormatter={(val) => `$colors-text-${val}`}
+  />
+</Story>
+
+## Actions
+
+<Story name="Actions" disableCanvas>
+  <ColorSwatches
+    colors={actionColorsExport}
+    titleFormatter={(val) => capitalCase(val)}
+    subtitleFormatter={(val) => `$colors-action-${val}`}
+  />
+</Story>

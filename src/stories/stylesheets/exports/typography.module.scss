@@ -1,0 +1,7 @@
+@import "lib/stylesheets/main.scss";
+
+:export {
+  @each $key, $value in $typography {
+    #{$key}: $value;
+  }
+}

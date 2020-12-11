@@ -16,7 +16,7 @@ const defaultCanvasProps = {
 
 export const Story = ({
   children,
-  canvas = true,
+  disableCanvas = false,
   name,
   args = {},
   parameters = {},
@@ -24,7 +24,7 @@ export const Story = ({
 }) => {
   const withCanvas = useCallback(
     (children) =>
-      canvas ? (
+      !disableCanvas ? (
         <Canvas
           {...{
             ...defaultCanvasProps,
@@ -36,7 +36,7 @@ export const Story = ({
       ) : (
         children
       ),
-    [canvas, canvasProps]
+    [disableCanvas, canvasProps]
   );
 
   return withCanvas(
