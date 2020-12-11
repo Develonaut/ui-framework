@@ -1,4 +1,4 @@
-import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
+import { Meta, ColorPalette, ColorItem, Subtitle, Title, Heading, Subheading } from "@storybook/addon-docs/blocks";
 import { Story } from "stories/components";
 import { Canvas, SourceState } from "@storybook/addon-docs/blocks";
 import { ThemeProvider } from "lib";
@@ -33,13 +33,10 @@ export const ColorSwatches = ({
   </ColorPalette>
 );
 
-# Colors
+<Title>Colors</Title>
+<Subtitle>Colors help convey meaning through the use of color in our applications. Out of the box these are UI-Frameworks brand colors.</Subtitle>
 
-#### Colors help convey meaning through the use of color in our applications. Out of the box these are UI-Frameworks brand colors.
-
-<br />
-
-## Palette
+The UI-Framework exposes the following palette colors (accessible using the `main.scss` or `_variables.scss`):
 
 Palette colors are used to service a given intention within an application. The UI-Framework exposes the following palette colors (accessible using the `main.scss` or `_variables.scss`):
 
@@ -52,48 +49,55 @@ Palette colors are used to service a given intention within an application. The 
 
 <br />
 
+<Heading>Palette</Heading>
+
+Palette colors are used to service a given intention within an application.
+
 <Story name="Palette" disableCanvas>
   <ColorPalette>
     <ColorItem
       title="Primary"
-      subtitle="$colors-primary-(light|main|dark)"
+      subtitle="Represent primary interface elements for a user.
+        It's the color displayed most frequently across
+        your app's screens and components."
       colors={{
-        light: paletteColorsExport.primaryLight,
-        main: paletteColorsExport.primaryMain,
-        dark: paletteColorsExport.primaryDark,
+        "$colors-primary-light": paletteColorsExport.primaryLight,
+        "$colors-primary-main": paletteColorsExport.primaryMain,
+        "$colors-primary-dark": paletteColorsExport.primaryDark,
       }}
     />
     <ColorItem
       title="Error"
-      subtitle="$colors-error-(light|main|dark)"
+      subtitle="Represents interface elements that the user should be made aware of."
       colors={{
-        light: paletteColorsExport.errorLight,
-        main: paletteColorsExport.errorMain,
-        dark: paletteColorsExport.errorDark,
+        "$colors-error-light": paletteColorsExport.errorLight,
+        "$colors-error-main": paletteColorsExport.errorMain,
+        "$colors-error-dark": paletteColorsExport.errorDark,
       }}
     />
     <ColorItem
       title="Success"
-      subtitle="$colors-success-(light|main|dark)"
+      subtitle="Represents successful completion of an action that user triggered."
       colors={{
-        light: paletteColorsExport.successLight,
-        main: paletteColorsExport.successMain,
-        dark: paletteColorsExport.successDark,
+        "$colors-success-light": paletteColorsExport.successLight,
+        "$colors-success-main": paletteColorsExport.successMain,
+        "$colors-success-dark": paletteColorsExport.successDark,
       }}
     />
     <ColorItem
       title="Default"
-      subtitle="$colors-default-(light|main|dark)"
+      subtitle="Represents default interface elements for a user. It gives default decoration to interface elements without calling to much attention"
       colors={{
-        light: paletteColorsExport.defaultLight,
-        main: paletteColorsExport.defaultMain,
-        dark: paletteColorsExport.defaultDark,
+        "$colors-default-light": paletteColorsExport.defaultLight,
+        "colors-default-main": paletteColorsExport.defaultMain,
+        "colors-default-dark": paletteColorsExport.defaultDark,
       }}
     />
   </ColorPalette>
 </Story>
 
 ## Common
+Common colors are general colors used througout an application.
 
 <Story name="Common" disableCanvas>
   <ColorSwatches
