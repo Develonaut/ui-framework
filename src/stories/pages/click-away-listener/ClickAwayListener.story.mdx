@@ -1,0 +1,48 @@
+import {
+  ArgsTable,
+  StoryAnchor,
+  ImportSnippet,
+  Story,
+  PageTitle,
+  Meta,
+} from "stories/common";
+import { ClickAwayListener, Button } from "lib";
+
+import { API } from "./API.story";
+
+export const title = "Utils/ClickAwayListener";
+export const componentName = "ClickAwayListener";
+
+<Meta title={title} component={ClickAwayListener} />
+
+<style>{`
+  .root {
+    position: relative;
+    height: 95px;
+  }
+  .popup {
+    position: absolute;
+    border: 1px solid black;
+    width: 250px;
+    background-color: white;
+    z-index: 999999;
+    margin-left: -70px;
+    padding: 10px;
+  }
+`}</style>
+
+<PageTitle
+  title="ClickAwayListener"
+  subtitle="  Detect if a click event happened outside of an element. It listens for clicks
+  that occur somewhere in the document."
+/>
+
+#### Import
+
+<ImportSnippet componentName={componentName} />
+
+#### Playground
+
+<Story name="API" story={API} expanded />
+
+<ArgsTable Component={ClickAwayListener} name="API" />

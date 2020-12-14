@@ -1,0 +1,121 @@
+import { Meta, ArgsTable, Source } from "@storybook/addon-docs/blocks";
+import { StoryAnchor, ImportSnippet, Story } from "stories/common";
+import { Canvas, SourceState } from "@storybook/addon-docs/blocks";
+import { ThemeProvider, Typography } from "lib";
+import { STORIES } from "stories/core/config";
+
+import typographyExport from "stories/core/stylesheets/exports/typography.module.scss";
+
+export const config = STORIES.TYPOGRAPHY;
+
+<Meta title={config.title} component={config.Component} anchor />
+
+<style>{`
+  .root h1,
+  .root h2,
+  .root h3,
+  .root h4
+  .root h5,
+  .root h6 {
+    color: inherit;
+    position: inherit;
+    cursor: inherit;
+    border: none;
+  } 
+`}</style>
+
+<PageTitle
+  title="Typography"
+  subtitle="Typography is used to present design and content as clearly and efficiently as possible."
+/>
+
+<br />
+
+## Font family
+
+UI-Framework uses this collections of fonts for the font family rule by default:
+
+<Source
+  dark
+  language="css"
+  code={`
+    font-family: ${typographyExport.fontFamily}
+  `}
+/>
+
+## Component
+
+<Story name="Component">
+  <Typography variant="h1" component="h2" gutterBottom>
+    h1. Heading
+  </Typography>
+  <Typography variant="h2" gutterBottom>
+    h2. Heading
+  </Typography>
+  <Typography variant="h3" gutterBottom>
+    h3. Heading
+  </Typography>
+  <Typography variant="h4" gutterBottom>
+    h4. Heading
+  </Typography>
+  <Typography variant="h5" gutterBottom>
+    h5. Heading
+  </Typography>
+  <Typography variant="h6" gutterBottom>
+    h6. Heading
+  </Typography>
+  <Typography variant="subtitle1" gutterBottom>
+    subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+    blanditiis tenetur
+  </Typography>
+  <Typography variant="subtitle2" gutterBottom>
+    subtitle2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+    blanditiis tenetur
+  </Typography>
+  <Typography variant="body1" gutterBottom>
+    body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+    blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,
+    neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum
+    quasi quidem quibusdam.
+  </Typography>
+  <Typography variant="body2" gutterBottom>
+    body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+    blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur,
+    neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum
+    quasi quidem quibusdam.
+  </Typography>
+  <Typography variant="button" display="block" gutterBottom>
+    button text
+  </Typography>
+  <Typography variant="caption" display="block" gutterBottom>
+    caption text
+  </Typography>
+  <Typography variant="overline" display="block" gutterBottom>
+    overline text
+  </Typography>
+</Story>
+
+<StoryAnchor name="API" path={config.path} />
+
+## API
+
+#### Import
+
+<ImportSnippet componentName={config.componentName} />
+
+#### Playground
+
+<Story
+  name="API"
+  args={{
+    children:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur",
+    variant: "body1",
+  }}
+>
+  {({ children = "", ...args }) => (
+    <Typography {...args}>{children}</Typography>
+  )}
+</Story>
+
+<ArgsTable of={config.Component} story="API" />

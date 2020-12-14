@@ -7,6 +7,16 @@ import {
   TextField,
   ThemeProvider,
   Typography,
+  Portal,
+  Modal,
 } from "./components";
 
-export { Button, ClickAwayListener, TextField, ThemeProvider, Typography };
+export {
+  Button,
+  ClickAwayListener,
+  TextField,
+  ThemeProvider,
+  Typography,
+  Portal,
+  Modal,
+};

@@ -1,0 +1,35 @@
+import { useRef, useState } from "react";
+import { Portal, Button } from "lib";
+import {
+  StoryAnchor,
+  ImportSnippet,
+  Story,
+  PageTitle,
+  Meta,
+  ArgsTable,
+} from "stories/common";
+import { STORIES } from "stories/core/config";
+
+import { API } from "./API.story.jsx";
+
+export const title = "Utils/Portal";
+export const componentName = "Portal";
+
+<Meta title={title} component={Portal} />
+
+<PageTitle
+  title="Portal"
+  subtitle='The portal component renders its children into a new "subtree" outside of current DOM hierarchy.'
+/>
+
+#### Import
+
+<ImportSnippet componentName={componentName} />
+
+#### Playground
+
+The children of the portal component will be appended to the container specified. The component is used internally by the Modal and Popper components.
+
+<Story name="API" story={API} expanded />
+
+<ArgsTable Component={Portal} name="API" />

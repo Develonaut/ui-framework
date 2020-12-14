@@ -1,6 +1,6 @@
 import { Meta, ArgsTable } from "@storybook/addon-docs/blocks";
 import { {{pascalCase name}} } from "lib";
-import { StoryAnchor, ImportSnippet, Story } from "stories/components";
+import { StoryAnchor, ImportSnippet, Story } from "stories/common";
 import { STORIES } from "stories/config";
 
 export const config = STORIES.{{constantCase name}};
@@ -23,7 +23,8 @@ export const config = STORIES.{{constantCase name}};
 #### Playground
 
 <Story name="API">
-  {(args) => <{{pascalCase name}} {...args} />}
+  {(args) =>
+  <{{pascalCase name}} {...args} />}
 </Story>
 
 <ArgsTable of={config.Component} story="API" />

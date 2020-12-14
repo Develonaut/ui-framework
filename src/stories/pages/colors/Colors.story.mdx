@@ -1,0 +1,136 @@
+import {
+  Meta,
+  ColorPalette,
+  ColorItem,
+  Heading,
+} from "@storybook/addon-docs/blocks";
+import { Story, PageTitle } from "stories/common";
+import { Canvas, SourceState } from "@storybook/addon-docs/blocks";
+import { ThemeProvider } from "lib";
+import { paramCase, capitalCase } from "change-case";
+import { STORIES } from "stories/core/config";
+
+import commonColorsExport from "stories/core/stylesheets/exports/common-colors.module.scss";
+import graysExport from "stories/core/stylesheets/exports/grays.module.scss";
+import paletteColorsExport from "stories/core/stylesheets/exports/palette-colors.module.scss";
+import textColorsExport from "stories/core/stylesheets/exports/text-colors.module.scss";
+import actionColorsExport from "stories/core/stylesheets/exports/action-colors.module.scss";
+
+export const config = STORIES.COLORS;
+
+<Meta title={config.title} />
+
+export const ColorSwatches = ({
+  colors,
+  titleFormatter,
+  subtitleFormatter,
+}) => (
+  <ColorPalette>
+    {Object.entries(colors).map(([key, value]) => (
+      <ColorItem
+        title={typeof titleFormatter === "function" ? titleFormatter(key) : key}
+        subtitle={
+          typeof subtitleFormatter === "function" ? subtitleFormatter(key) : key
+        }
+        colors={[value]}
+      />
+    ))}
+  </ColorPalette>
+);
+
+<PageTitle
+  title="Colors"
+  subtitle="  Colors help convey meaning through the use of color in our applications. Out
+  of the box these are UI-Frameworks brand colors."
+/>
+
+The UI-Framework exposes the following palette colors (accessible using the `main.scss` or `_variables.scss`):
+
+<Heading>Palette</Heading>
+
+Palette colors are used to service a given intention within an application.
+
+<Story name="Palette" disableCanvas>
+  <ColorPalette>
+    <ColorItem
+      title="Primary"
+      subtitle="Represent primary interface elements for a user.
+        It's the color displayed most frequently across
+        your app's screens and components."
+      colors={{
+        "$colors-primary-light": paletteColorsExport.primaryLight,
+        "$colors-primary-main": paletteColorsExport.primaryMain,
+        "$colors-primary-dark": paletteColorsExport.primaryDark,
+      }}
+    />
+    <ColorItem
+      title="Error"
+      subtitle="Represents interface elements that the user should be made aware of."
+      colors={{
+        "$colors-error-light": paletteColorsExport.errorLight,
+        "$colors-error-main": paletteColorsExport.errorMain,
+        "$colors-error-dark": paletteColorsExport.errorDark,
+      }}
+    />
+    <ColorItem
+      title="Success"
+      subtitle="Represents successful completion of an action that user triggered."
+      colors={{
+        "$colors-success-light": paletteColorsExport.successLight,
+        "$colors-success-main": paletteColorsExport.successMain,
+        "$colors-success-dark": paletteColorsExport.successDark,
+      }}
+    />
+    <ColorItem
+      title="Default"
+      subtitle="Represents default interface elements for a user. It gives default decoration to interface elements without calling to much attention"
+      colors={{
+        "$colors-default-light": paletteColorsExport.defaultLight,
+        "colors-default-main": paletteColorsExport.defaultMain,
+        "colors-default-dark": paletteColorsExport.defaultDark,
+      }}
+    />
+  </ColorPalette>
+</Story>
+
+## Common
+
+Common colors are general colors used througout an application.
+
+<Story name="Common" disableCanvas>
+  <ColorSwatches
+    colors={commonColorsExport}
+    titleFormatter={(val) => capitalCase(val)}
+    subtitleFormatter={(val) => `$colors-common-${val}`}
+  />
+</Story>
+
+## Grays
+
+<Story name="Grays" disableCanvas>
+  <ColorSwatches
+    colors={graysExport}
+    titleFormatter={(val) => capitalCase(val)}
+    subtitleFormatter={(val) => `$colors-grays-${val}`}
+  />
+</Story>
+
+## Text
+
+<Story name="Text" disableCanvas>
+  <ColorSwatches
+    colors={textColorsExport}
+    titleFormatter={(val) => capitalCase(val)}
+    subtitleFormatter={(val) => `$colors-text-${val}`}
+  />
+</Story>
+
+## Actions
+
+<Story name="Actions" disableCanvas>
+  <ColorSwatches
+    colors={actionColorsExport}
+    titleFormatter={(val) => capitalCase(val)}
+    subtitleFormatter={(val) => `$colors-action-${val}`}
+  />
+</Story>

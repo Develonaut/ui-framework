@@ -1,0 +1,41 @@
+import {
+  ArgsTable,
+  StoryAnchor,
+  ImportSnippet,
+  Story,
+  PageTitle,
+  Meta,
+} from "stories/common";
+import { Modal } from "lib";
+
+import { API } from "./API.story";
+
+export const title = "Utils/Modal";
+export const componentName = "Modal";
+
+<Meta title={title} component={Modal} />
+
+<PageTitle
+  title="Modal"
+  subtitle="The modal component provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else."
+/>
+
+#### Import
+
+<ImportSnippet componentName={componentName} />
+
+#### Playground
+
+The component renders its children node in front of a backdrop component. The Modal offers important features:
+
+- Manages modal stacking when one-at-a-time just isn't enough.
+- Creates a backdrop, for disabling interaction below the modal.
+- It disables scrolling of the page content while open.
+- It properly manages focus; moving to the modal content, and keeping it there until the modal is closed.
+- Adds the appropriate ARIA roles automatically.
+
+###### Terminology note. The term "modal" is sometimes used to mean "dialog", but this is a misnomer. A modal window describes parts of a UI. An element is considered modal if it blocks interaction with the rest of the application.
+
+<Story story={API} name="API" expanded />
+
+<ArgsTable Component={Modal} name="API" />
