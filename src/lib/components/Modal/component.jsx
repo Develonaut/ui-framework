@@ -9,7 +9,7 @@ import {
 import { useForkRef, useEventCallback } from "lib/hooks";
 import ModalManager, { ariaHidden } from "./ModalManager";
 import { TrapFocus } from "../TrapFocus";
-import { SimpleBackdrop } from "./SimpleBackdrop/component";
+import { Backdrop } from "../Backdrop";
 import { Portal } from "../Portal";
 
 function getContainer(container) {
@@ -55,7 +55,7 @@ export const styles = () => ({
  */
 export const Modal = React.forwardRef((props, ref) => {
   const {
-    BackdropComponent = SimpleBackdrop,
+    BackdropComponent = Backdrop,
     BackdropProps,
     children,
     closeAfterTransition = false,
@@ -268,7 +268,7 @@ export const Modal = React.forwardRef((props, ref) => {
 Modal.propTypes = {
   /**
    * A backdrop component. This prop enables custom backdrop rendering.
-   * @default SimpleBackdrop
+   * @default Backdrop
    */
   BackdropComponent: PropTypes.elementType,
   /**

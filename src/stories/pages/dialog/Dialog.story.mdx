@@ -1,0 +1,33 @@
+import { Dialog } from "lib";
+import {
+  StoryAnchor,
+  ImportSnippet,
+  Story,
+  Meta,
+  ArgsTable,
+} from "stories/common";
+
+import { API } from "./API.story";
+
+export const title = "Feedback/Dialog";
+export const componentName = "Dialog";
+
+<Meta title={title} component={Dialog} anchor />
+
+# Dialog
+
+#### Dialog description here
+
+<StoryAnchor name="API" path={title} />
+
+## API
+
+#### Import
+
+<ImportSnippet componentName={componentName} />
+
+#### Playground
+
+<Story name="API" story={API} />
+
+<ArgsTable Component={Dialog} story="API" />

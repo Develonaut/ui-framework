@@ -1,0 +1,31 @@
+import { Backdrop } from "lib";
+import {
+  StoryAnchor,
+  ImportSnippet,
+  Story,
+  Meta,
+  ArgsTable,
+} from "stories/common";
+
+import { API } from "./API.story";
+
+export const title = "Feedback/Backdrop";
+export const componentName = "Backdrop";
+
+<Meta title={title} Component={Backdrop} anchor />
+
+<PageTitle title="Backdrop" subtitle="Backdrop description here" />
+
+<StoryAnchor name="API" path={title} />
+
+## API
+
+#### Import
+
+<ImportSnippet componentName={componentName} />
+
+#### Playground
+
+<Story name="API" story={API} />
+
+<ArgsTable Component={Backdrop} story="API" />

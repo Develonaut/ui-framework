@@ -15,13 +15,17 @@ const yesNoChoices = () => [
 const storyPathChoices = () => [
   {
     name: "Inputs",
-    value: "Inputs"
+    value: "Inputs",
   },
   {
     name: "Utils",
-    value: "Utils"
-  }
-]
+    value: "Utils",
+  },
+  {
+    name: "Feedback",
+    value: "Feedback",
+  },
+];
 
 const componentTypeChoices = () => [
   {
@@ -67,8 +71,8 @@ module.exports = (plop) => {
         type: "list",
         name: "storyPath",
         message: "What is the stories path?",
-        choices: storyPathChoices
-      }
+        choices: storyPathChoices,
+      },
     ],
     actions: ({ type, includeStory, isPublic }) => {
       const libraryTypeActions = [
@@ -104,7 +108,7 @@ module.exports = (plop) => {
           path: "src/{{type}}/components/index.js",
           pattern: "/* PLOP_INJECT_EXPORT */",
           template: "export * from './{{pascalCase name}}';",
-        }
+        },
       ];
 
       const isPublicActions = [
@@ -120,7 +124,7 @@ module.exports = (plop) => {
           pattern: "/* PLOP_INJECT_EXPORT */",
           template: "{{pascalCase name}},",
         },
-      ]
+      ];
 
       const storiesTypeActions = [
         {
@@ -139,22 +143,15 @@ module.exports = (plop) => {
       const includeStoryActions = [
         {
           type: "add",
-          path: "src/stories/{{pascalCase name}}.story.mdx",
+          path:
+            "src/stories/pages/{{dashCase name}}/{{pascalCase name}}.story.mdx",
           templateFile: "plop-templates/component.story.mdx.hbs",
         },
         {
-          type: "append",
-          path: "src/stories/config/stories.js",
-          pattern: "/* PLOP_INJECT_CONFIG */",
-          template: `
-            {{constantCase name}}: {
-              title: "{{storyPath}}/{{pascalCase name}}",
-              path: "{{storyPath}}/{{pascalCase name}}",
-              Component: lib.{{pascalCase name}},
-              componentName: "{{pascalCase name}}",
-            },
-          `
-        }
+          type: "add",
+          path: "src/stories/pages/{{dashCase name}}/API.story.jsx",
+          templateFile: "plop-templates/api.story.jsx.hbs",
+        },
       ];
 
       return [
