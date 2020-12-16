@@ -1,0 +1,14 @@
+@import "../../../lib/stylesheets/main.scss";
+
+.story-utils-portal {
+  .demo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .container,
+    .target {
+      padding: spacing();
+    }
+  }
+}

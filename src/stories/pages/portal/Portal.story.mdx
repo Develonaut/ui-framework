@@ -10,7 +10,7 @@ import {
 } from "stories/common";
 import { STORIES } from "stories/core/config";
 
-import { API } from "./API.story.jsx";
+import { Basic } from "./Basic.story.jsx";
 
 export const title = "Utils/Portal";
 export const componentName = "Portal";
@@ -22,14 +22,18 @@ export const componentName = "Portal";
   subtitle='The portal component renders its children into a new "subtree" outside of current DOM hierarchy.'
 />
 
+## Basic
+
+The children of the portal component will be appended to the container specified. The component is used internally by the Modal and Popper components.
+
+<Story name="Basic" story={Basic} expanded />
+
 #### Import
 
 <ImportSnippet componentName={componentName} />
 
-#### Playground
+<Story name="API" disableCanvas />
 
-The children of the portal component will be appended to the container specified. The component is used internally by the Modal and Popper components.
-
-<Story name="API" story={API} expanded />
+#### API
 
 <ArgsTable Component={Portal} name="API" />

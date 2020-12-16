@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { ClickAwayListener, Button } from "lib";
 
-export const API = () => {
+import "./story.scss";
+
+export const Basic = () => {
   const [open, setOpen] = useState(false);
   const handleClick = () => setOpen((prev) => !prev);
   const handleClickAway = () => setOpen(false);
   return (
-    <div className="root">
+    <div className="demo">
       <Button onClick={handleClick}>Click Me</Button>
       <ClickAwayListener onClickAway={handleClickAway}>
         {open ? (
