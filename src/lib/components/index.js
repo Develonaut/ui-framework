@@ -9,4 +9,3 @@ export * from "./ClickAwayListener";
 export * from "./TextField";
 export * from "./Portal";
 export * from "./Modal";
-export * from "./Dialog";
