@@ -1,15 +1,16 @@
 import React from "react";
 import { Surface } from "lib";
+
 import { getDefaultParams } from "stories/core/config";
 
 import "./story.scss";
 
-export const API = (args) => (
+export const Basic = () => (
   <div className="demo">
-    <Surface {...args} />
+    <Surface elevation={0} />
+    <Surface />
+    <Surface elevation={3} />
   </div>
 );
 
-API.parameters = getDefaultParams();
-
-API.args = {};
+Basic.parameters = getDefaultParams();

@@ -67,14 +67,14 @@
   }
 
   &.minitab-ui-button-small {
-    width: calculateRem(75px);
+    min-width: calculateRem(75px);
   }
 
   &.minitab-ui-button-medium {
-    width: calculateRem(100px);
+    min-width: calculateRem(100px);
   }
 
   &.minitab-ui-button-large {
-    width: calculateRem(125px);
+    min-width: calculateRem(125px);
   }
 }

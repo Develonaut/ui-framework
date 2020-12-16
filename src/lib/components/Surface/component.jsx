@@ -1,13 +1,14 @@
-import * as React from "react";
+import { createElement, forwardRef } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 
-export const Surface = React.forwardRef(
+import "./component.scss";
+
+export const Surface = forwardRef(
   (
     {
-      classes,
       className,
-      Component = "div",
+      as = "div",
       square = false,
       elevation = 1,
       variant = "elevation",
@@ -15,21 +16,20 @@ export const Surface = React.forwardRef(
     },
     ref
   ) => {
-    return (
-      <Component
-        className={clsx(
-          "minitab-ui-surface",
-          `minitab-ui-surface-${variant}`,
-          {
-            "minitab-ui-surface-rounded": !square,
-            [`minitab-ui-surface-${elevation}`]: variant === "elevation",
-          },
-          className
-        )}
-        ref={ref}
-        {...other}
-      />
-    );
+    return createElement(as, {
+      className: clsx(
+        "minitab-ui-surface",
+        `minitab-ui-surface-${variant}`,
+        {
+          "minitab-ui-surface-rounded": !square,
+          [`minitab-ui-surface-elevation-${elevation}`]:
+            variant === "elevation",
+        },
+        className
+      ),
+      ref,
+      ...other,
+    });
   }
 );
 
@@ -39,10 +39,6 @@ Surface.propTypes = {
    */
   children: PropTypes.node,
   /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: PropTypes.object,
-  /**
    * @ignore
    */
   className: PropTypes.string,
@@ -50,12 +46,13 @@ Surface.propTypes = {
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: PropTypes.elementType,
+  as: PropTypes.elementType,
   /**
    * Shadow depth, corresponds to `dp` in the spec.
    * It accepts values between 0 and 24 inclusive.
    */
   elevation: PropTypes.oneOf([
+    0,
     1,
     2,
     3,
@@ -80,8 +77,6 @@ Surface.propTypes = {
     22,
     23,
     24,
-    25,
-    26,
   ]),
   /**
    * If `true`, rounded corners are disabled.

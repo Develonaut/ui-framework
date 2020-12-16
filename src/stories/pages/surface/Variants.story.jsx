@@ -4,12 +4,11 @@ import { getDefaultParams } from "stories/core/config";
 
 import "./story.scss";
 
-export const API = (args) => (
+export const Variants = () => (
   <div className="demo">
-    <Surface {...args} />
+    <Surface variant="outlined" />
+    <Surface variant="outlined" square />
   </div>
 );
 
-API.parameters = getDefaultParams();
-
-API.args = {};
+Variants.parameters = getDefaultParams();

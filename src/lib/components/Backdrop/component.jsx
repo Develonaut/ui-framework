@@ -1,11 +1,11 @@
-import * as React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 
 import "./component.scss";
 
-export const Backdrop = React.forwardRef(
-  ({ invisible = false, open, className, style, ...other }, ref) => {
+export const Backdrop = forwardRef(
+  ({ invisible = false, open, className, ...other }, ref) => {
     return open ? (
       <div
         className={clsx("minitab-ui-backdrop", className, {
@@ -13,8 +13,6 @@ export const Backdrop = React.forwardRef(
         })}
         aria-hidden
         ref={ref}
-        {...other}
-        {...(style || {})}
         {...other}
       />
     ) : null;
@@ -35,5 +33,4 @@ Backdrop.propTypes = {
    * @ignore
    */
   className: PropTypes.string,
-  style: PropTypes.object,
 };
