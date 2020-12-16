@@ -5,29 +5,28 @@ import {
   Story,
   Meta,
   ArgsTable,
+  PageTitle,
 } from "stories/common";
 
-import { API } from "./API.story";
+import { Basic } from "./Basic.story";
 
 export const title = "Feedback/Dialog";
 export const componentName = "Dialog";
 
 <Meta title={title} component={Dialog} anchor />
 
-# Dialog
+<PageTitle title="Dialog" subtitle="Dialog description here" />
 
-#### Dialog description here
+## Basic
 
-<StoryAnchor name="API" path={title} />
-
-## API
+<Story story={Basic} path={title} />
 
 #### Import
 
 <ImportSnippet componentName={componentName} />
 
-#### Playground
+#### API
 
-<Story name="API" story={API} />
+<Story name="API" disableCanvas />
 
 <ArgsTable Component={Dialog} story="API" />

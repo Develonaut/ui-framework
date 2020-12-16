@@ -240,3 +240,18 @@ $zIndexes: (
   snackbar: $z-index-snackbar,
   tooltip: $z-index-tooltip,
 );
+
+// Breakpoints
+$breakpoint-xs: 444px;
+$breakpoint-sm: 600px;
+$breakpoint-md: 960px;
+$breakpoint-lg: 1280px;
+$breakpoint-xl: 1920px;
+
+$breakpoints: (
+  xs: $breakpoint-xs,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+);

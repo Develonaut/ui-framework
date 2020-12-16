@@ -2,7 +2,6 @@
 
 .minitab-ui-button {
   @include typography-button();
-  @extend %box-sizing;
   @include border(1px, solid, transparent, $shape-border-radius-50);
   background-color: transparent;
   outline: none;

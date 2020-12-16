@@ -17,3 +17,28 @@
     border-radius: $radius;
   }
 }
+
+@mixin flex-box(
+  $flex-direction: false,
+  $justify-content: false,
+  $align-items: false,
+  $flex: false
+) {
+  display: flex;
+
+  @if $justify-content != false {
+    justify-content: $justify-content;
+  }
+
+  @if $flex != false {
+    flex: $flex;
+  }
+
+  @if $flex-direction != false {
+    flex-direction: $flex-direction;
+  }
+
+  @if $align-items != false {
+    align-items: $align-items;
+  }
+}

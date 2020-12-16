@@ -1,9 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Button, Dialog, Typography } from "lib";
-import { getDefaultParams } from "stories/core/config";
 
-export const API = (args) => {
+import "./story.scss";
+
+export const Basic = () => {
   const emails = ["username@gmail.com", "user02@gmail.com"];
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(emails[1]);
@@ -26,6 +26,8 @@ export const API = (args) => {
         onClose={handleClose}
         aria-labelledby="simple-dialog-title"
         open={open}
+        className="demo"
+        maxWidth={false}
       >
         <ul>
           {emails.map((email) => (
@@ -38,7 +40,3 @@ export const API = (args) => {
     </div>
   );
 };
-
-API.parameters = getDefaultParams();
-
-API.args = {};

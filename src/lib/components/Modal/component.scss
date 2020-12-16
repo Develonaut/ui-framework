@@ -1,12 +1,14 @@
 @import "../../stylesheets/main.scss";
 
 .minitab-ui-modal {
+  @extend %box-sizing;
   position: fixed;
   z-index: $z-index-modal;
   right: 0;
   bottom: 0;
   top: 0;
   left: 0;
+  
   &.minitab-ui-modal-hidden {
     visibility: "hidden";
   }

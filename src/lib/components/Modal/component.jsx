@@ -28,6 +28,7 @@ export const Modal = forwardRef(
   (
     {
       children,
+      className,
       container,
       disableAutoFocus = false,
       disableEnforceFocus = false,
@@ -175,7 +176,7 @@ export const Modal = forwardRef(
         <div
           className={clsx("minitab-ui-modal", {
             "minitab-ui-modal-hidden": !open,
-          })}
+          }, className)}
           ref={handleRef}
           onKeyDown={handleKeyDown}
           role="presentation"
