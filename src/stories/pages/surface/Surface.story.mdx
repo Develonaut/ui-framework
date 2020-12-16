@@ -1,0 +1,42 @@
+import { Surface, Button } from "lib";
+import {
+  StoryAnchor,
+  ImportSnippet,
+  Story,
+  Meta,
+  ArgsTable,
+  PageTitle
+} from "stories/common";
+
+import { API } from "./API.story";
+import { Basic } from "./Basic.story";
+import { Variants } from "./Variants.story";
+
+export const title = "Surfaces/Surface";
+export const componentName = "Surface";
+
+<Meta title={title} component={Surface} anchor />
+
+<PageTitle title="Surface" subtitle="Surface represents the background of different parts in the application. It's used to group content and actions for display." />
+
+<StoryAnchor name="API" path={title} />
+
+## Basic
+
+<Story story={Basic} />
+
+## Variants
+
+<Story story={Variants} />
+
+## API
+
+#### Import
+
+<ImportSnippet componentName={componentName} />
+
+#### Playground
+
+<Story story={API} name="API" expanded />
+
+<ArgsTable Component={Surface} name="API" />

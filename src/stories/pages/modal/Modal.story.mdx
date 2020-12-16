@@ -8,7 +8,7 @@ import {
 } from "stories/common";
 import { Modal } from "lib";
 
-import { API } from "./API.story";
+import { Basic } from "./Basic.story";
 
 export const title = "Utils/Modal";
 export const componentName = "Modal";
@@ -20,11 +20,10 @@ export const componentName = "Modal";
   subtitle="The modal component provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else."
 />
 
-#### Import
+## Basic
 
-<ImportSnippet componentName={componentName} />
-
-#### Playground
+If you are creating a modal dialog, you probably want to use the [Dialog](http://localhost:6006/?path=/docs/feedback-dialog--api#dialog) component
+rather than directly using Modal.
 
 The component renders its children node in front of a backdrop component. The Modal offers important features:
 
@@ -34,8 +33,18 @@ The component renders its children node in front of a backdrop component. The Mo
 - It properly manages focus; moving to the modal content, and keeping it there until the modal is closed.
 - Adds the appropriate ARIA roles automatically.
 
-###### Terminology note. The term "modal" is sometimes used to mean "dialog", but this is a misnomer. A modal window describes parts of a UI. An element is considered modal if it blocks interaction with the rest of the application.
+This component shares many concepts with [react-overlays](https://react-bootstrap.github.io/react-overlays/#modals).
 
-<Story story={API} name="API" expanded />
+###### Note. The term "modal" is sometimes used to mean "dialog", but this is a misnomer. A modal window describes parts of a UI. An element is considered modal if it blocks interaction with the rest of the application.
+
+<Story story={Basic} name="Basic" />
+
+#### Import
+
+<ImportSnippet componentName={componentName} />
+
+<Story name="API" disableCanvas />
+
+#### API
 
 <ArgsTable Component={Modal} name="API" />

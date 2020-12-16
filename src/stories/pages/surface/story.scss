@@ -1,0 +1,16 @@
+@import "../../../lib/stylesheets/main.scss";
+
+.story-surfaces-surface {
+  .demo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .minitab-ui-surface {
+    margin: 7px;
+    width: 112px;
+    height: 112px;
+  }
+}

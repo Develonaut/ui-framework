@@ -1,4 +1,5 @@
 export * from "./setRef";
+export * from "./chainPropTypes";
 export * from "./HTMLElementType";
 export * from "./elementAcceptingRef";
 export * from "./elementTypeAcceptingRef";

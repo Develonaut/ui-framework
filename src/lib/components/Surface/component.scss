@@ -1,0 +1,20 @@
+@import "../../stylesheets/main.scss";
+
+.minitab-ui-surface {
+  background-color: $color-background-surface;
+  color: $color-text-primary;
+
+  &.minitab-ui-surface-rounded {
+    @include border($radius: $shape-border-radius-100);
+  }
+
+  &.minitab-ui-surface-outlined {
+    @include border(1px, solid, $color-misc-divider);
+  }
+
+  @each $key, $value in $shadows {
+    &.minitab-ui-surface-elevation-#{$key} {
+      box-shadow: $value;
+    }
+  }
+}

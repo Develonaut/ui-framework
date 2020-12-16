@@ -1,0 +1,127 @@
+@import "../../stylesheets/main.scss";
+
+.minitab-ui-dialog {
+  @extend %box-sizing;
+  position: fixed;
+  @media print {
+    // Use !important to override the Modal inline-style.
+    position: "absolute !important";
+  }
+
+  .minitab-ui-dialog-container {
+    height: 100%;
+    // We disable the focus ring for mouse, touch and keyboard users.
+    outline: 0;
+    @media print {
+      height: auto;
+    }
+
+    &.minitab-ui-dialog-container-scroll-surface {
+      @extend %flex-column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &.minitab-ui-dialog-container-scroll-body {
+      overflow-y: auto;
+      overflow-x: hidden;
+      text-align: center;
+      &:after {
+        content: '""';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        width: 0;
+      }
+    }
+  }
+
+  .minitab-ui-dialog-surface {
+    margin: spacing(5);
+    position: relative;
+    // Fix IE11 issue.
+    overflow-y: auto;
+    @media print {
+      overflow-y: visible;
+      box-shadow: none;
+    }
+
+    &.minitab-ui-dialog-surface-scroll-surface {
+      @extend %flex-column;
+      max-height: calc(100% - 64px);
+    }
+
+    &.minitab-ui-dialog-surface-scroll-body {
+      display: inline-block;
+      vertical-align: middle;
+      // 'initial' doesn't work on IE11
+      text-align: left;
+    }
+
+    &.minitab-ui-dialog-surface-width-false {
+      max-width: calc(100% - 64px);
+    }
+
+    &.minitab-ui-dialog-surface-width-xs {
+      max-width: $breakpoint-xs;
+      &.minitab-ui-dialog-surface-scroll-body {
+        @media (min-width: #{calc($breakpoint-xs) + 64px}) {
+          max-width: calc(100% - 64px);
+        }
+      }
+    }
+
+    &.minitab-ui-dialog-surface-width-sm {
+      max-width: $breakpoint-sm;
+      &.minitab-ui-dialog-surface-scroll-body {
+        @media (min-width: #{calc($breakpoint-sm) + 64px}) {
+          max-width: calc(100% - 64px);
+        }
+      }
+    }
+
+    &.minitab-ui-dialog-surface-width-md {
+      max-width: $breakpoint-md;
+      &.minitab-ui-dialog-surface-scroll-body {
+        @media (min-width: #{calc($breakpoint-md) + 64px}) {
+          max-width: calc(100% - 64px);
+        }
+      }
+    }
+
+    &.minitab-ui-dialog-surface-width-lg {
+      max-width: $breakpoint-lg;
+      &.minitab-ui-dialog-surface-scroll-body {
+        @media (min-width: #{calc($breakpoint-lg) + 64px}) {
+          max-width: calc(100% - 64px);
+        }
+      }
+    }
+
+    &.minitab-ui-dialog-surface-width-xl {
+      max-width: $breakpoint-xl;
+      &.minitab-ui-dialog-surface-scroll-body {
+        @media (min-width: #{calc($breakpoint-xl) + 64px}) {
+          max-width: calc(100% - 64px);
+        }
+      }
+    }
+
+    &.minitab-ui-dialog-surface-width-full-width {
+      width: calc(100% - 64px);
+    }
+
+    &.minitab-ui-dialog-surface-width-full-screen {
+      margin: 0;
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      max-height: none;
+      border-radius: 0;
+      &.minitab-ui-dialog-surface-scroll-body {
+        margin: 0;
+        max-width: 100%;
+      }
+    }
+  }
+}

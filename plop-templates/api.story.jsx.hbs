@@ -1,0 +1,10 @@
+import React from "react";
+import { {{pascalCase name }} } from "lib";
+import { getDefaultParams } from "stories/core/config";
+
+export const API = (args) =>
+<{{pascalCase name}} {...args} />;
+
+API.parameters = getDefaultParams();
+
+API.args = {};

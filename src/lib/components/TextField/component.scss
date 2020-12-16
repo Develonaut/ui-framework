@@ -2,11 +2,9 @@
 
 
 .minitab-ui-text-field {
-  @extend %box-sizing;
   @extend %flex-column;
 
   .minitab-ui-text-field-label {
-    @extend %box-sizing;
     @include typography-caption();
     color: $color-gray-700;
     height: 25px;
@@ -19,7 +17,6 @@
   }
 
   .minitab-ui-text-field-input {
-    @extend %box-sizing;
     @include typography-body2();
     @include border(1px, solid, $color-gray-500, $shape-border-radius-50);
     @include input-focus();
@@ -37,7 +34,6 @@
 }
 
 .minitab-ui-helper-text {
-  @extend %box-sizing;
   @include typography-caption();
   height: 25px;
   margin: 0;

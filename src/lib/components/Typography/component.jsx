@@ -22,7 +22,7 @@ export const Typography = ({
   align = "inherit",
   className,
   children,
-  component,
+  as,
   color = "initial",
   display = "initial",
   gutterBottom = false,
@@ -33,9 +33,9 @@ export const Typography = ({
   value,
   ...rest
 }) => {
-  const as = component || (paragraph ? "p" : variantMap[variant]) || "span";
+  const el = as || (paragraph ? "p" : variantMap[variant]) || "span";
 
-  return React.createElement(as, {
+  return React.createElement(el, {
     children: value || children,
     className: clsx(
       `minitab-ui-typography minitab-ui-typography-${variant} minitab-ui-typography-display-${display} minitab-ui-typography-align-${align}`,
@@ -66,7 +66,7 @@ Typography.propTypes = {
    * The component used for the root node.
    * Either a string to use a HTML element or a component.
    */
-  component: PropTypes.elementType,
+  as: PropTypes.elementType,
   /**
    * Controls the display type
    */

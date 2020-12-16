@@ -1,0 +1,16 @@
+.story-utils-click-away-listener {
+  .demo {
+    position: relative;
+    height: 95px;
+
+    .popup {
+      position: absolute;
+      border: 1px solid black;
+      width: 250px;
+      background-color: white;
+      z-index: 999999;
+      margin-left: -70px;
+      padding: 10px;
+    }
+  }
+}

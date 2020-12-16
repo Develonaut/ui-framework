@@ -1,3 +1,6 @@
+import PropTypes from "prop-types";
+import { chainPropTypes } from "./chainPropTypes";
+
 function isClassComponent(elementType) {
   // elementType.prototype?.isReactComponent
   const { prototype = {} } = elementType;
@@ -5,13 +8,7 @@ function isClassComponent(elementType) {
   return Boolean(prototype.isReactComponent);
 }
 
-export const elementAcceptingRef = (
-  props,
-  propName,
-  componentName,
-  location,
-  propFullName
-) => {
+function acceptingRef(props, propName, componentName, location, propFullName) {
   const element = props[propName];
   const safePropName = propFullName || propName;
 
@@ -52,4 +49,12 @@ export const elementAcceptingRef = (
   }
 
   return null;
-};
+}
+
+const elementAcceptingRef = chainPropTypes(PropTypes.element, acceptingRef);
+elementAcceptingRef.isRequired = chainPropTypes(
+  PropTypes.element.isRequired,
+  acceptingRef
+);
+
+export { elementAcceptingRef };

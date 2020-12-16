@@ -1,10 +1,14 @@
+import PropTypes from "prop-types";
+import { chainPropTypes } from "./chainPropTypes";
+
 function isClassComponent(elementType) {
   // elementType.prototype?.isReactComponent
   const { prototype = {} } = elementType;
+
   return Boolean(prototype.isReactComponent);
 }
 
-export const elementTypeAcceptingRef = (
+const elTypeAcceptingRef = (
   props,
   propName,
   componentName,
@@ -51,3 +55,8 @@ export const elementTypeAcceptingRef = (
 
   return null;
 };
+
+export const elementTypeAcceptingRef = chainPropTypes(
+  PropTypes.elementType,
+  elTypeAcceptingRef
+);

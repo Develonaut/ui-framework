@@ -8,28 +8,12 @@ import {
 } from "stories/common";
 import { ClickAwayListener, Button } from "lib";
 
-import { API } from "./API.story";
+import { Basic } from "./Basic.story";
 
 export const title = "Utils/ClickAwayListener";
 export const componentName = "ClickAwayListener";
 
 <Meta title={title} component={ClickAwayListener} />
-
-<style>{`
-  .root {
-    position: relative;
-    height: 95px;
-  }
-  .popup {
-    position: absolute;
-    border: 1px solid black;
-    width: 250px;
-    background-color: white;
-    z-index: 999999;
-    margin-left: -70px;
-    padding: 10px;
-  }
-`}</style>
 
 <PageTitle
   title="ClickAwayListener"
@@ -37,12 +21,18 @@ export const componentName = "ClickAwayListener";
   that occur somewhere in the document."
 />
 
+## Basic
+
+The Click Away Listener is great if you need to hide a menu or dropdown when people click anywhere else on the page.
+
+<Story story={Basic} path={title} />
+
 #### Import
 
 <ImportSnippet componentName={componentName} />
 
-#### Playground
+#### API
 
-<Story name="API" story={API} expanded />
+<Story name="API" disableCanvas />
 
 <ArgsTable Component={ClickAwayListener} name="API" />

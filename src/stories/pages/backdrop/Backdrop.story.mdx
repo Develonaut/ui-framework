@@ -1,0 +1,37 @@
+import { Backdrop } from "lib";
+import {
+  StoryAnchor,
+  ImportSnippet,
+  Story,
+  Meta,
+  ArgsTable,
+  PageTitle
+} from "stories/common";
+
+import { Basic } from "./Basic.story";
+
+export const title = "Feedback/Backdrop";
+export const componentName = "Backdrop";
+
+<Meta title={title} Component={Backdrop} anchor />
+
+<PageTitle
+  title="Backdrop"
+  subtitle="The backdrop component is used to provide emphasis on a particular element or parts of it."
+/>
+
+## Basic
+
+The backdrop signals to the user of a state change within the application and can be used for creating loaders, dialogs and more. In its simplest form, the backdrop component will add a dimmed layer over your application.
+
+<Story story={Basic} path={title} />
+
+#### Import
+
+<ImportSnippet componentName={componentName} />
+
+<Story name="API" disableCanvas />
+
+#### API
+
+<ArgsTable Component={Backdrop} story="API" />

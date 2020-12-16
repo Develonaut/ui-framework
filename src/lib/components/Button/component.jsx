@@ -1,4 +1,4 @@
-import React from "react";
+import { createElement } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 
@@ -12,11 +12,10 @@ export const Button = ({
   onClick,
   disabled = false,
   href = undefined,
-  component = "button",
+  as = "button",
 }) => {
-  const as = href ? "a" : component;
-
-  return React.createElement(as, {
+  const el = href ? "a" : as;
+  return createElement(el, {
     ...(href ? { href } : {}),
     onClick,
     children,
@@ -32,6 +31,11 @@ export const Button = ({
 };
 
 Button.propTypes = {
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  as: PropTypes.elementType,
   /**
    * The content of the button.
    */

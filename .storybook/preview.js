@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeProvider } from "../src/lib/components";
+import "../src/stories/core/stylesheets/global.scss";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
