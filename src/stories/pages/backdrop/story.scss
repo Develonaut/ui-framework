@@ -1,0 +1,17 @@
+@import "../../../lib/stylesheets/main.scss";
+
+.story-feedback-backdrop {
+  .demo {
+    .minitab-ui-backdrop {
+      z-index: $z-index-modal;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loading {
+      color: $color-common-white;
+    }
+  }
+}
