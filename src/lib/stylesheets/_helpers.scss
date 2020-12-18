@@ -1,13 +1,3 @@
-%flex-row {
-  display: flex;
-  flex-direction: row;
-}
-
-%flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
 %box-sizing {
   box-sizing: border-box;
   *,
@@ -15,4 +5,12 @@
   *:after {
     box-sizing: border-box;
   }
+}
+
+// Placeholder to apply to root level components.
+// This is for components that most other library components
+// will live under in the DOM Hierarchy e.g. ThemeProvider, Modal, Dialog.
+%base-inherits {
+  @extend %box-sizing;
+  @include typography-body2();
 }

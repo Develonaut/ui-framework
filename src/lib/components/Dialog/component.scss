@@ -1,7 +1,6 @@
 @import "../../stylesheets/main.scss";
 
 .minitab-ui-dialog {
-  @extend %box-sizing;
   position: fixed;
   @media print {
     // Use !important to override the Modal inline-style.
@@ -17,7 +16,7 @@
     }
 
     &.minitab-ui-dialog-container-scroll-surface {
-      @extend %flex-column;
+      @include flex-box(column);
       justify-content: center;
       align-items: center;
     }
@@ -47,7 +46,7 @@
     }
 
     &.minitab-ui-dialog-surface-scroll-surface {
-      @extend %flex-column;
+      @include flex-box(column);
       max-height: calc(100% - 64px);
     }
 
@@ -107,11 +106,11 @@
       }
     }
 
-    &.minitab-ui-dialog-surface-width-full-width {
+    &.minitab-ui-dialog-surface-full-width {
       width: calc(100% - 64px);
     }
 
-    &.minitab-ui-dialog-surface-width-full-screen {
+    &.minitab-ui-dialog-surface-full-screen {
       margin: 0;
       width: 100%;
       max-width: 100%;

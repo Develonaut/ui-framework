@@ -3,6 +3,9 @@
 
 import {
   /* PLOP_INJECT_IMPORT */
+  DialogContent,
+  DialogActions,
+  DialogTitle,
   Surface,
   Backdrop,
   Dialog,
@@ -17,6 +20,9 @@ import {
 
 export {
   /* PLOP_INJECT_EXPORT */
+  DialogContent,
+  DialogActions,
+  DialogTitle,
   Surface,
   Backdrop,
   Dialog,

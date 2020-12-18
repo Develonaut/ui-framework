@@ -1,7 +1,7 @@
 @import "../../stylesheets/main.scss";
 
 .minitab-ui-modal {
-  @extend %box-sizing;
+  @extend %base-inherits;
   position: fixed;
   z-index: $z-index-modal;
   right: 0;

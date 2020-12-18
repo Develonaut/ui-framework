@@ -1,0 +1,30 @@
+@import "../../../stylesheets/main.scss";
+
+.minitab-ui-dialog-content {
+  @include flex-box($flex: 1 1 auto);
+  // Add iOS momentum scrolling.
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  padding: spacing() spacing(3);
+
+  &:first-child {
+    // For dialogs without a title.
+    padding-top: 20;
+  }
+
+  &.minitab-ui-dialog-content-dividers {
+    padding: spacing(2) spacing(3);
+    @include border(
+      $width: 1px,
+      $style: solid,
+      $color: $color-misc-divider,
+      $position: top
+    );
+    @include border(
+      $width: 1px,
+      $style: solid,
+      $color: $color-misc-divider,
+      $position: bottom
+    );
+  }
+}

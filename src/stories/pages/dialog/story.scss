@@ -1,14 +1,39 @@
+@import "../../../lib/stylesheets/main.scss";
+
 .story-feedback-dialog {
-    .demo {
-      ul {
-        margin: 0;
-        padding: 0;
-      }
-      li {
-          list-style: none;
-          padding: 12px;
-          cursor: pointer;
+  .demo {
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+      padding: 12px;
+      cursor: pointer;
+    }
+
+    form {
+      @include flex-box(column);
+      margin: auto;
+      width: fit-content;
+
+      .form-control {
+        margin-top: spacing(2);
+        min-width: 120px;
+
+        &.row {
+          @include flex-box(row);
+          margin-right: spacing(2);
+        }
+
+        &.column {
+          @include flex-box(column);
+
+          label {
+            margin-top: spacing(2);
+          }
+        }
       }
     }
   }
-  
+}

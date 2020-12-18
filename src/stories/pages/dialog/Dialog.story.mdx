@@ -9,17 +9,33 @@ import {
 } from "stories/common";
 
 import { Basic } from "./Basic.story";
+import { Sizes } from "./Sizes.story";
 
 export const title = "Feedback/Dialog";
 export const componentName = "Dialog";
 
 <Meta title={title} component={Dialog} anchor />
 
-<PageTitle title="Dialog" subtitle="Dialog description here" />
+<PageTitle
+  title="Dialog"
+  subtitle="Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks."
+/>
+
+A Dialog is a type of [modal](?path=/docs/utils-modal--basic) window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.
+
+Dialogs are purposefully interruptive, so they should be used sparingly.
 
 ## Basic
 
+Basic dialogs can provide additional details or actions about a list item. For example, they can display avatars, icons, clarifying subtext, or orthogonal actions (such as adding an account).
+
 <Story story={Basic} path={title} />
+
+## Sizes
+
+You can set a dialog maximum width by using the `maxWidth` enumerable in combination with the `fullWidth` boolean. When the fullWidth property is true, the dialog will adapt based on the maxWidth value.
+
+<Story story={Sizes} path={title} />
 
 #### Import
 

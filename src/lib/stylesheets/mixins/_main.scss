@@ -1,16 +1,28 @@
 @import "./_buttons", "./_inputs", "./_typography";
 
-@mixin border($width: null, $style: null, $color: null, $radius: null) {
+@mixin border($width: null, $style: null, $color: null, $radius: null, $position: null) {
   @if $width {
-    border-width: $width;
+    @if $position {
+      border-#{$position}-width: $width
+    } @else {
+      border-width: $width;
+    }
   }
 
   @if $style {
-    border-style: $style;
+    @if $position {
+      border-#{$position}-style: $style
+    } @else {
+      border-style: $style;
+    }
   }
 
   @if $color {
-    border-color: $color;
+    @if $position {
+      border-#{$position}-color: $color
+    } @else {
+      border-color: $color;
+    }
   }
 
   @if $radius {

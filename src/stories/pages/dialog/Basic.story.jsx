@@ -20,7 +20,7 @@ export const Basic = () => {
       <Typography variant="subtitle1">{`Selected: ${selectedValue}`}</Typography>
       <br />
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
-        Open simple dialog
+        Open Basic Dialog
       </Button>
       <Dialog
         onClose={handleClose}
