@@ -1,18 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
+import { HelperText } from "../HelperText";
 
 import "./component.scss";
-
-const HelperText = ({ error, children = "" }) => (
-  <p
-    className={clsx("minitab-ui-helper-text", {
-      "minitab-ui-helper-text-error": error,
-    })}
-  >
-    {children}
-  </p>
-);
 
 export const TextField = ({
   autoComplete,

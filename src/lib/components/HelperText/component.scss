@@ -1,0 +1,14 @@
+@import "../../stylesheets/main.scss";
+
+.minitab-ui-helper-text {
+  @include typography-caption();
+  height: 25px;
+  margin: 0;
+  padding-top: #{spacing(1, true) - 4}px;
+  padding-bottom: #{spacing(1, true) - 4}px;
+  color: $color-gray-700;
+
+  &.minitab-ui-helper-text-error {
+    color: $color-error-main;
+  }
+}

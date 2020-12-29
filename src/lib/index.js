@@ -3,6 +3,7 @@
 
 import {
   /* PLOP_INJECT_IMPORT */
+  HelperText,
   DialogContent,
   DialogActions,
   DialogTitle,
@@ -20,6 +21,7 @@ import {
 
 export {
   /* PLOP_INJECT_EXPORT */
+  HelperText,
   DialogContent,
   DialogActions,
   DialogTitle,
