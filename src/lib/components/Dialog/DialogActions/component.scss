@@ -6,9 +6,11 @@
     $justify-content: flex-end,
     $flex: 0 0 auto
   );
-  padding: spacing();
-  .minitab-ui-dialog-actions-spacing {
-    & > :not(:first-child) {
+  padding: spacing(2);
+  background-color: $color-background-default;
+
+  &.minitab-ui-dialog-actions-spacing {
+    & > *:not(:first-child) {
       margin-left: spacing();
     }
   }

@@ -1,11 +1,11 @@
 @mixin font-size($size) {
   font-size: $size;
-  font-size: calculateRem($size);
+  font-size: pxToRem($size);
 }
 
 @mixin letter-spacing($size) {
   letter-spacing: $size;
-  letter-spacing: calculateRem($size);
+  letter-spacing: pxToRem($size);
 }
 
 @mixin typography-h1() {

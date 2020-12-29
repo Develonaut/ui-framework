@@ -1,7 +1,9 @@
 @import "../../../stylesheets/main.scss";
 
 .minitab-ui-dialog-title {
-    margin: 0;
-    padding: spacing(2) spacing(3);
-    @include flex-box($flex: 0 0 auto);
+  margin: 0;
+  padding: spacing(2) spacing(3);
+  @include flex-box($flex: 0 0 auto);
+  color: $color-primary-contrast-text;
+  background-color: $color-primary-dark;
 }

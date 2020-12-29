@@ -10,6 +10,7 @@ import {
 
 import { Basic } from "./Basic.story";
 import { Sizes } from "./Sizes.story";
+import { Nested } from "./Nested.story";
 
 export const title = "Feedback/Dialog";
 export const componentName = "Dialog";
@@ -36,6 +37,12 @@ Basic dialogs can provide additional details or actions about a list item. For e
 You can set a dialog maximum width by using the `maxWidth` enumerable in combination with the `fullWidth` boolean. When the fullWidth property is true, the dialog will adapt based on the maxWidth value.
 
 <Story story={Sizes} path={title} />
+
+## Nested
+
+Nested dialogs can be used when additional decisions or options need to be presented to the user for additional decision making.
+
+<Story story={Nested} path={title} />
 
 #### Import
 
