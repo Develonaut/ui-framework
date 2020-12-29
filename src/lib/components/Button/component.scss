@@ -8,15 +8,13 @@
   text-align: center;
   padding: spacing();
   cursor: pointer;
-  margin: spacing();
   display: inline-block;
 
   &.minitab-ui-button-contained {
     &.minitab-ui-button-default {
       color: $color-default-contrast-text;
-      border-color: $color-default-dark;
       background-color: $color-default-main;
-
+      @include border($color: $color-default-dark);
       @include button-focus();
       @include button-hover($color-default-main, $color-default-contrast-text);
       @include button-active($color-default-main);
@@ -25,9 +23,8 @@
 
     &.minitab-ui-button-primary {
       color: $color-primary-contrast-text;
-      border-color: $color-primary-dark;
       background-color: $color-primary-main;
-
+      @include border($color: $color-primary-dark);
       @include button-focus();
       @include button-hover($color-primary-main);
       @include button-active($color-primary-main);
@@ -49,7 +46,7 @@
       color: $color-primary-main;
 
       @include button-focus();
-      @include button-hover($color-primary-light, $color-primary-contrast-text);
+      @include button-hover($color-primary-main, $color-primary-contrast-text);
       @include button-active(
         $color-primary-light,
         $color-primary-contrast-text
@@ -66,14 +63,14 @@
   }
 
   &.minitab-ui-button-small {
-    min-width: calculateRem(75px);
+    min-width: pxToRem(75px);
   }
 
   &.minitab-ui-button-medium {
-    min-width: calculateRem(100px);
+    min-width: pxToRem(100px);
   }
 
   &.minitab-ui-button-large {
-    min-width: calculateRem(125px);
+    min-width: pxToRem(125px);
   }
 }

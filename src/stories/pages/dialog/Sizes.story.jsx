@@ -28,36 +28,38 @@ export const Sizes = () => {
       >
         <DialogTitle id="max-width-dialog-title">Multiple Sizes</DialogTitle>
         <DialogContent dividers>
-        <form>
-          <div className="form-control row">
-            <input
-              id="full-width"
-              type="checkbox"
-              checked={fullWidth}
-              onChange={handleFullWidthChange}
-            />
-            <label htmlFor="full-width">Full Width</label>
-          </div>
-          <div className="form-control column">
-            <label htmlFor="max-width">Max Width</label>
-            <select
-              id="max-width"
-              onChange={handleMaxWidthChange}
-              autoFocus
-              value={maxWidth}
-            >
-              <option value={false}>false</option>
-              <option value="xs">xs</option>
-              <option value="sm">sm</option>
-              <option value="md">md</option>
-              <option value="lg">lg</option>
-              <option value="xl">xl</option>
-            </select>
-          </div>
-        </form>
+          <form>
+            <div className="form-control row">
+              <input
+                id="full-width"
+                type="checkbox"
+                checked={fullWidth}
+                onChange={handleFullWidthChange}
+              />
+              <label htmlFor="full-width">Full Width</label>
+            </div>
+            <div className="form-control column">
+              <label htmlFor="max-width">Max Width</label>
+              <select
+                id="max-width"
+                onChange={handleMaxWidthChange}
+                autoFocus
+                value={maxWidth}
+              >
+                <option value={false}>false</option>
+                <option value="xs">xs</option>
+                <option value="sm">sm</option>
+                <option value="md">md</option>
+                <option value="lg">lg</option>
+                <option value="xl">xl</option>
+              </select>
+            </div>
+          </form>
         </DialogContent>
         <DialogActions>
-          <Button color="primary" onClick={handleClose}>Close</Button>
+          <Button color="primary" onClick={handleClose}>
+            Close
+          </Button>
         </DialogActions>
       </Dialog>
     </>

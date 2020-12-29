@@ -9,7 +9,7 @@ export const DialogActions = forwardRef(
     return (
       <div
         className={clsx("minitab-ui-dialog-actions", className, {
-          "minitab-ui-dialog-actions": !disableSpacing
+          "minitab-ui-dialog-actions-spacing": !disableSpacing,
         })}
         ref={ref}
         {...other}

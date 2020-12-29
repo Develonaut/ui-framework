@@ -7,7 +7,7 @@
   @return $spacing * $modifier + px;
 }
 
-@function calculateRem($size) {
+@function pxToRem($size) {
   $remSize: $size / 16px;
   @return $remSize * 1rem;
 }

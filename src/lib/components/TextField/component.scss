@@ -3,6 +3,10 @@
 .minitab-ui-text-field {
   @include flex-box(column);
 
+  &.minitab-ui-text-field-full-width {
+    width: 100%;
+  }
+
   .minitab-ui-text-field-label {
     @include typography-caption();
     color: $color-gray-700;
@@ -12,6 +16,10 @@
 
     &.minitab-ui-text-field-label-disabled {
       @include input-disabled();
+    }
+
+    &.minitab-ui-text-label-full-width {
+      width: 100%;
     }
   }
 
@@ -28,6 +36,10 @@
 
     &.minitab-ui-text-field-input-disabled {
       @include input-disabled();
+    }
+
+    &.minitab-ui-text-field-full-width {
+      width: 100%;
     }
   }
 }

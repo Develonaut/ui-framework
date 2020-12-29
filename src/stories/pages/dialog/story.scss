@@ -36,4 +36,62 @@
       }
     }
   }
+
+  .nested-demo {
+    .nested-demo-content {
+      @include flex-box(row, center);
+
+      .nested-demo-content-left {
+        @include flex-box(
+          $flex-direction: column,
+          $flex: 0 0 auto,
+          $align-items: center
+        );
+
+        ul {
+          @include flex-box($flex-direction: column, $flex: 1 1 auto);
+          width: pxToRem(160px);
+          margin: 0;
+          margin-bottom: spacing();
+          padding: spacing();
+          @include border(1px, solid, $color-gray-500, $shape-border-radius-50);
+
+          li {
+            min-width: pxToRem(42px);
+            list-style: none;
+            cursor: pointer;
+          }
+        }
+      }
+
+      & > div {
+        @include flex-box(
+          $flex-direction: column,
+          $align-items: flex-end,
+          $flex: 1 1 auto
+        );
+        margin-left: spacing(2);
+
+        button {
+          margin-right: spacing();
+
+          &:last-of-type {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .nested-demo-statistics {
+    .nested-demo-statistics-content {
+      @include flex-box(column);
+    }
+  }
+
+  .nested-demo-graphs {
+    .nested-demo-graphs-content {
+      @include flex-box(column);
+    }
+  }
 }
