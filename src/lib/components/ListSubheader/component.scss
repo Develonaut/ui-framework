@@ -1,0 +1,26 @@
+@import "../../stylesheets/main.scss";
+
+.minitab-ui-list-subheader {
+  @include typography-body2();
+  font-size: pxToRem(13px);
+  font-weight: $typography-font-weight-medium;
+  color: $color-text-secondary;
+  list-style: none;
+  line-height: 3.5;
+
+  &.minitab-ui-list-subheader-gutters {
+    padding-left: spacing(2);
+    padding-right: spacing(2);
+  }
+
+  &.minitab-ui-list-subheader-inset {
+    padding-left: spacing(10);
+  }
+
+  &.minitab-ui-list-subheader-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: inherit;
+  }
+}

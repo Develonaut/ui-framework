@@ -1,0 +1,41 @@
+@import "../../../lib/stylesheets/main.scss";
+
+.story-display-list {
+  .demo {
+    @include flex-box($flex-direction: column);
+
+    .demo-controls {
+      margin-bottom: spacing(3);
+      & > div {
+        cursor: pointer;
+        vertical-align: middle;
+        margin-right: spacing();
+
+        & > * {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .demo-controls,
+    .list-group {
+      @include flex-box(
+        $flex-direction: row,
+        $flex-wrap: wrap,
+        $justify-content: center
+      );
+    }
+
+    .list-group {
+      ul {
+        width: 250px;
+        background-color: $color-background-surface;
+        margin: spacing(2);
+      }
+    }
+  }
+
+  .api-demo {
+    background-color: $color-background-surface;
+  }
+}

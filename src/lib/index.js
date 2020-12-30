@@ -3,6 +3,9 @@
 
 import {
   /* PLOP_INJECT_IMPORT */
+  ListSubheader,
+  ListItem,
+  List,
   HelperText,
   DialogContent,
   DialogActions,
@@ -21,6 +24,9 @@ import {
 
 export {
   /* PLOP_INJECT_EXPORT */
+  ListSubheader,
+  ListItem,
+  List,
   HelperText,
   DialogContent,
   DialogActions,

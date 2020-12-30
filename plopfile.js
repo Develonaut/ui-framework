@@ -25,6 +25,10 @@ const storyPathChoices = () => [
     name: "Feedback",
     value: "Feedback",
   },
+  {
+    name: "Display",
+    value: "Display",
+  },
 ];
 
 const componentTypeChoices = () => [

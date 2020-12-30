@@ -1,0 +1,17 @@
+@import "../../stylesheets/main.scss";
+
+.minitab-ui-list {
+  position: "relative";
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &.minitab-ui-list-padding {
+    padding-top: spacing();
+    padding-bottom: spacing();
+  }
+
+  &.minitab-ui-list-has-subheader {
+    padding-top: 0;
+  }
+}

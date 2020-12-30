@@ -32,3 +32,23 @@
     box-shadow: 0px 0px 0px 1px $color;
   }
 }
+
+@mixin list-item-button-hover($color, $contrastColor: false) {
+  &:not(.minitab-ui-list-item-disabled):hover {
+    cursor: pointer;
+    @if $contrastColor {
+      color: $contrastColor;
+    }
+    background-color: darken($color, $percent-action-hover);
+  }
+}
+
+@mixin list-item-button-active($color, $contrastColor: false) {
+  &:not(.minitab-ui-list-item-disabled):active {
+    cursor: pointer;
+    @if $contrastColor {
+      color: $contrastColor;
+    }
+    background-color: darken($color, $percent-action-activated);
+  }
+}

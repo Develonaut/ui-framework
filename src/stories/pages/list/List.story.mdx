@@ -1,0 +1,35 @@
+import {
+  StoryAnchor,
+  ImportSnippet,
+  Story,
+  Meta,
+  ArgsTable,
+  PageTitle,
+} from "stories/common";
+import { List } from "lib";
+
+import { API } from "./API.story";
+import { Variations } from "./Variations.story";
+
+export const title = "Display/List";
+export const componentName = "List";
+
+<Meta title={title} component={List} anchor />
+
+<PageTitle title="List" subtitle="List description here" />
+
+## Variations
+
+<Story story={Variations} path={title} />
+
+## API
+
+#### Import
+
+<ImportSnippet componentName={componentName} />
+
+#### Playground
+
+<Story story={API} name="API" expanded />
+
+<ArgsTable Component={List} name="API" />

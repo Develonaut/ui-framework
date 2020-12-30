@@ -1,0 +1,56 @@
+@import "../../stylesheets/main.scss";
+
+.minitab-ui-list-item {
+  @include flex-box($justify-content: flex-start, $align-items: center);
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+  padding-top: spacing(1.5);
+  padding-bottom: spacing(1.5);
+
+  &.minitab-ui-list-item-selected,
+  &.minitab-ui-list-item-selected:hover {
+    background-color: $color-action-selected;
+  }
+
+  &.minitab-ui-list-item-dense {
+    padding-top: spacing();
+    padding-bottom: spacing();
+  }
+
+  &.minitab-ui-list-item-flex-start {
+    @include flex-box($align-items: "flex-start");
+  }
+
+  &.minitab-ui-list-item-divider {
+    @include border(
+      $width: 1px,
+      $style: solid,
+      $color: $color-misc-divider,
+      $position: bottom
+    );
+    background-clip: padding-box;
+  }
+
+  &.minitab-ui-list-item-gutters {
+    padding-left: spacing(2);
+    padding-right: spacing(2);
+  }
+
+  &.minitab-ui-list-item-disabled {
+    cursor: not-allowed;
+    opacity: $percent-action-disabled;
+  }
+
+  &.minitab-ui-list-item-button {
+    @include list-item-button-hover(
+      $color-default-main,
+      $color-default-contrast-text
+    );
+    @include list-item-button-active(
+      $color-default-main,
+      $color-default-contrast-text
+    );
+  }
+}

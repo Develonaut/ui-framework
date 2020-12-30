@@ -1,4 +1,7 @@
 /* PLOP_INJECT_EXPORT */
+export * from './ListSubheader';
+export * from './ListItem';
+export * from './List';
 export * from './HelperText';
 export * from "./Surface";
 export * from "./Backdrop";
