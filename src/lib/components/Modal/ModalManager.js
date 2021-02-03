@@ -83,7 +83,8 @@ function handleContainer(containerInfo, props) {
     const parent = container.parentElement;
     const containerWindow = ownerWindow(container);
     const scrollContainer =
-      parent?.nodeName === "HTML" &&
+      parent &&
+      parent.nodeName === "HTML" &&
       containerWindow.getComputedStyle(parent).overflowY === "scroll"
         ? parent
         : container;
