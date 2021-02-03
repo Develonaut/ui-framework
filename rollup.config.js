@@ -4,8 +4,6 @@ import babel from "@rollup/plugin-babel";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import postcss from "rollup-plugin-postcss";
-import alias from "@rollup/plugin-alias";
-import * as path from "path";
 
 const packageJson = require("./package.json");
 
@@ -25,14 +23,10 @@ export default {
   ],
   plugins: [
     peerDepsExternal(),
-    // Allows us to resolve import paths using absolute import paths.
-    alias({
-      entries: {
-        "lib/hooks": path.join(process.cwd(), "src/lib/hooks"),
-        "lib/utils": path.join(process.cwd(), "src/lib/utils"),
-      },
-    }),
     resolve({
+      customResolveOptions: {
+        moduleDirectory: "src/lib",
+      },
       extensions: [".js", ".jsx"],
     }),
     commonjs(),
@@ -42,7 +36,4 @@ export default {
     }),
     postcss(),
   ],
-  // Allow prop-types to be an external dependency, since it will be included with
-  // react.
-  external: ["prop-types"],
 };
