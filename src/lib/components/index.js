@@ -1,4 +1,5 @@
 /* PLOP_INJECT_EXPORT */
+export * from './CircularProgress';
 export * from './HelperText';
 export * from "./Surface";
 export * from "./Backdrop";
