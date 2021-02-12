@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Backdrop, Button, Typography } from "lib";
+import { Backdrop, Button, CircularProgress } from "lib";
 
 import "./story.scss";
 
@@ -14,7 +14,7 @@ export const Basic = () => {
         Show Backdrop
       </Button>
       <Backdrop onClick={handleClose} open={open}>
-        <Typography className="loading" variant="h4">Loading</Typography>
+        <CircularProgress size={60} />
       </Backdrop>
     </div>
   );

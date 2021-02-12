@@ -3,6 +3,7 @@
 
 import {
   /* PLOP_INJECT_IMPORT */
+  CircularProgress,
   HelperText,
   DialogContent,
   DialogActions,
@@ -21,6 +22,7 @@ import {
 
 export {
   /* PLOP_INJECT_EXPORT */
+  CircularProgress,
   HelperText,
   DialogContent,
   DialogActions,

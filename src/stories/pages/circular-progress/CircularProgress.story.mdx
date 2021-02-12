@@ -1,0 +1,34 @@
+import { CircularProgress } from "lib";
+import {
+  StoryAnchor,
+  ImportSnippet,
+  Story,
+  Meta,
+  ArgsTable,
+} from "stories/common";
+
+import { API } from "./API.story";
+
+export const title = "Feedback/CircularProgress";
+export const componentName = "CircularProgress";
+
+<Meta title={title} component={CircularProgress} anchor />
+
+<PageTitle
+  title="CircularProgress"
+  subtitle="CircularProgress description here"
+/>
+
+<StoryAnchor name="API" path={title} />
+
+## API
+
+#### Import
+
+<ImportSnippet componentName={componentName} />
+
+#### Playground
+
+<Story name="API" story={API} expanded />
+
+<ArgsTable Component={CircularProgress} name="API" />
