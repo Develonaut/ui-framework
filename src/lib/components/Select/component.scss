@@ -1,0 +1,13 @@
+@import "../../stylesheets/main.scss";
+
+.mtb-select {
+  @include flex-box($display: inline-flex, $flex-direction: column);
+
+  &.mtb-select-full-width {
+    width: 100%;
+  }
+
+  .mtb-select-label {
+    @extend %input-label;
+  }
+}

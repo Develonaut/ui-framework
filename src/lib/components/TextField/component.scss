@@ -1,7 +1,7 @@
 @import "../../stylesheets/main.scss";
 
 .minitab-ui-text-field {
-  @include flex-box(column);
+  @include flex-box($display: inline-flex, $flex-direction: column);
 
   &.minitab-ui-text-field-full-width {
     width: 100%;
@@ -9,13 +9,10 @@
 
   .minitab-ui-text-field-label {
     @include typography-caption();
-    color: $color-gray-700;
-    height: 25px;
-    padding-top: #{spacing(1, true) - 4}px;
-    padding-bottom: #{spacing(1, true) - 4}px;
+    @extend %input-label;
 
     &.minitab-ui-text-field-label-disabled {
-      @include input-disabled();
+      @extend %input-disabled;
     }
 
     &.minitab-ui-text-label-full-width {
@@ -24,18 +21,14 @@
   }
 
   .minitab-ui-text-field-input {
-    @include typography-body2();
-    @include border(1px, solid, $color-gray-500, $shape-border-radius-50);
-    @include input-focus();
-    padding: spacing(1);
+    @extend %input-base;
 
     &.minitab-ui-text-field-input-error {
-      @include border($color: $color-error-main);
-      @include input-focus($color-error-main);
+      @extend %input-error;
     }
 
     &.minitab-ui-text-field-input-disabled {
-      @include input-disabled();
+      @extend %input-disabled;
     }
 
     &.minitab-ui-text-field-full-width {

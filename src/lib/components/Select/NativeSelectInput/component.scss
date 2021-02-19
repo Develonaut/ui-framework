@@ -1,0 +1,52 @@
+@import "../../../stylesheets/main.scss";
+
+.mtb-select-input-wrapper {
+  width: 100%;
+  @include flex-box(row);
+  position: relative;
+
+  .mtb-select-input {
+    @extend %input-base;
+    -moz-appearance: none; // Reset
+    -webkit-appearance: none; // Reset
+    // When interacting quickly, the text can end up selected.
+    // Native select can't be selected either.
+    user-select: none;
+    min-width: pxToRem(16px); // Prevent collapsing.
+    cursor: pointer;
+    padding-right: pxToRem(24px);
+
+    .mtb-select-input-multiple {
+      height: auto;
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &:focus {
+      //   border-radius: 0; // Reset Chrome style
+    }
+
+    &:disabled {
+      cursor: default;
+    }
+
+    &:not(.mtb-select-input-multiple) option,
+    &:not(.mtb-select-input-multiple) optgroup {
+      background-color: $color-background-surface;
+    }
+  }
+
+  .mtb-select-input-icon {
+    position: absolute;
+    right: 0;
+    top: calc(50% - 12px); // Center vertically
+    pointer-events: none; // Don't block pointer events on the select under the icon.
+    color: $color-action-active;
+
+    &.mtb-select-input-icon-disabled {
+      color: $color-action-disabled;
+    }
+  }
+}

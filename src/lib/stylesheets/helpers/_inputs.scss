@@ -1,0 +1,28 @@
+// Common styling for an inputs disabled state.
+%input-disabled {
+  cursor: not-allowed;
+  opacity: $percent-action-disabled;
+}
+
+// Common styling for an inputs error state.
+%input-error {
+  @include border($color: $color-error-main);
+  @include input-focus($color-error-main);
+}
+
+// Common styling used for inputs.
+%input-base {
+  width: 100%;
+  @include typography-body2();
+  @include border(1px, solid, $color-gray-500, $shape-border-radius-50);
+  @include input-focus();
+  padding: spacing(1);
+}
+
+// Common collection of styling for input labels.
+%input-label {
+  color: $color-gray-700;
+  height: 25px;
+  padding-top: #{spacing(1, true) - 4}px;
+  padding-bottom: #{spacing(1, true) - 4}px;
+}
