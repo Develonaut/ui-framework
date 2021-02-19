@@ -3,6 +3,8 @@
 
 import {
   /* PLOP_INJECT_IMPORT */
+  SvgIcon,
+  Select,
   CircularProgress,
   HelperText,
   DialogContent,
@@ -22,6 +24,8 @@ import {
 
 export {
   /* PLOP_INJECT_EXPORT */
+  SvgIcon,
+  Select,
   CircularProgress,
   HelperText,
   DialogContent,

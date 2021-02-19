@@ -1,10 +1,7 @@
 @mixin input-focus($color: $color-action-focus) {
   &:focus {
-    outline-color: $color;
+    outline: none; // Reset
+    box-shadow: 0px 0px 0px 1px $color;
+    border-color: $color;
   }
-}
-
-@mixin input-disabled {
-  cursor: not-allowed;
-  opacity: $percent-action-disabled;
 }

@@ -1,6 +1,8 @@
 /* PLOP_INJECT_EXPORT */
-export * from './CircularProgress';
-export * from './HelperText';
+export * from "./SvgIcon";
+export * from "./Select";
+export * from "./CircularProgress";
+export * from "./HelperText";
 export * from "./Surface";
 export * from "./Backdrop";
 export * from "./Dialog";

@@ -7,3 +7,4 @@ export * from "./getScrollbarSize";
 export * from "./ownerDocument";
 export * from "./ownerWindow";
 export * from "./createChainedFunction";
+export * from "./createSvgIcon";

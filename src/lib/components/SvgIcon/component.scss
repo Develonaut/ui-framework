@@ -1,0 +1,46 @@
+@import "../../stylesheets/main.scss";
+
+.mtb-svg-icon {
+  user-select: none;
+  width: 1em; // Intentional use of em for font-size scaling
+  height: 1em; // Intentional use of em for font-size scaling
+  display: inline-block;
+  fill: currentColor;
+  flex-shrink: 0;
+
+  &.mtb-svg-icon-size-inherit {
+    font-size: inherit;
+  }
+
+  &.mtb-svg-icon-size-small {
+    font-size: pxToRem(20px);
+  }
+
+  &.mtb-svg-icon-size-medium {
+    font-size: pxToRem(24px);
+  }
+
+  &.mtb-svg-icon-size-large {
+    font-size: pxToRem(35px);
+  }
+
+  &.mtb-svg-icon-color-inherit {
+    color: inherit;
+  }
+
+  &.mtb-svg-icon-color-primary {
+    color: $color-primary-main;
+  }
+
+  &.mtb-svg-icon-color-action {
+    color: $color-action-active;
+  }
+
+  &.mtb-svg-icon-color-error {
+    color: $color-error-main;
+  }
+
+  &.mtb-svg-icon-color-disabled {
+    color: $color-action-disabled;
+  }
+}

@@ -1,0 +1,36 @@
+import { Select } from "lib";
+import {
+  StoryAnchor,
+  ImportSnippet,
+  Story,
+  Meta,
+  ArgsTable,
+} from "stories/common";
+
+import { API } from "./API.story";
+import { Basic } from "./Basic.story";
+
+export const title = "Inputs/Select";
+export const componentName = "Select";
+
+<Meta title={title} component={Select} anchor />
+
+<PageTitle title="Select" subtitle="Select description here" />
+
+<StoryAnchor name="Basic" path={title} />
+
+## Basic
+
+<Story story={Basic} />
+
+## API
+
+#### Import
+
+<ImportSnippet componentName={componentName} />
+
+#### Playground
+
+<Story name="API" story={API} />
+
+<ArgsTable Component={Select} name="API" />
